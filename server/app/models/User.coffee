@@ -4,17 +4,18 @@ Schema = mongoose.Schema
 UserSchema = new Schema(
   email:
     type: String
-    require: true
+    required: true
     unique: true
+    validate: [/.+\@.+\..+/, 'Email n\'est pas valide']
   password:
     type: String
-    require: true
+    required: true
   firstName:
     type: String
-    require: true
+    required: true
   lastName:
     type: String
-    require: true
+    required: true
 
 )
 

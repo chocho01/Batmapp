@@ -6,7 +6,11 @@ module.exports = (app) ->
   app.use '/api/users', router
 
 ###
-  Request to get all users
+  @api {get} /users/ Request all Users informations
+  @apiGroup Users
+  @apiSuccess {Object[]} users List of user
+  @apiSuccess {String}   users.email   Users email.
+
 ###
 router.get '/', (req, res, next) ->
   UserRepository.getAll (err, users) ->
@@ -14,10 +18,11 @@ router.get '/', (req, res, next) ->
     res.json(users)
 
 ###
-  Request to create a user
+  @api {post} /users/ Create a user
+  @apiGroup Users
+  @apiSuccess {Object} user User created
 ###
 router.post '/', (req, res, next) ->
-  console.log req.body
   UserRepository.createUser req.body, (err, user) ->
-    return next(err) if err
+    res.status(400).json() if err
     res.json(user)

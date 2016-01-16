@@ -12,12 +12,11 @@ module.exports = (app, config) ->
   env = process.env.NODE_ENV || 'development'
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env == 'development'
-  
+
   app.set 'views', config.root + '/app/views'
   app.set 'view engine', 'ejs'
 
   # app.use(favicon(config.root + '/public/img/favicon.ico'));
-  app.use logger 'dev'
   app.use bodyParser.json()
   app.use bodyParser.urlencoded(
     extended: true
@@ -41,7 +40,9 @@ module.exports = (app, config) ->
 
   # development error handler
   # will print stacktrace
-  
+  if app.get('env') != 'test'
+    app.use logger 'dev'
+
   if app.get('env') == 'development'
     app.use (err, req, res, next) ->
       res.status err.status || 500

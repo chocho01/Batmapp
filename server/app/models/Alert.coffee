@@ -1,39 +1,39 @@
 # Example model
 
-mongoose = require 'mongoose'
+mongoose =  require 'mongoose'
 Schema = mongoose.Schema
 
 AlertSchema = new Schema(
   date:
     type: Date
-    require: true
+    required: true
   sender:
     type: String
-    require: true
+    required: true
   criticity:
     type: Number
-    require: true
+    required: true
   type:
     type: String
-    require: true
+    required: true
   geoPosition:
     latitude:
       type: Number
-      require: true
+      required: true
     longitude:
       type: Number
-      require: true
+       required: true
   receiver:
     type: Array
   police:
-      type: Boolean
-      require: true
+    type: Boolean
+    required: true
   samu:
     type: Boolean
-    require: true
+    required: true
   solved:
     type: Boolean
-    require: true
+    required: true
 )
 
 mongoose.model 'Alert', AlertSchema

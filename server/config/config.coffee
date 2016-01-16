@@ -14,8 +14,8 @@ config =
     root: rootPath
     app:
       name: 'server'
-    port: 3000
-    db: 'mongodb://localhost/server-test'
+    port: 3002
+    db: 'mongodb://localhost/batmapp'
 
   production:
     root: rootPath
