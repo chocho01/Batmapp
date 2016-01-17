@@ -16,7 +16,6 @@
     "glob": "^5.0.3",
     "md5": "^2.0.0",
     "method-override": "^2.3.0",
-    "mockgoose": "^5.2.2",
     "mongoose": "^4.1.2",
     "morgan": "^1.6.1",
     "serve-favicon": "^2.3.0",
@@ -25,8 +24,8 @@
   "devDependencies": {
     "coffee-script": "^1.9.1",
     "gulp": "^3.9.0",
-    "gulp-nodemon": "^2.0.2",
     "gulp-livereload": "^3.8.0",
-    "gulp-plumber": "^1.0.0"
+    "gulp-nodemon": "^2.0.2",
+    "gulp-plumber": "^1.0.0",
   }
 }

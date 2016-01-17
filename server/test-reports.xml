@@ -1,5 +1,0 @@
-<testsuite name="Mocha Tests" tests="3" failures="0" errors="0" skipped="0" timestamp="Sat, 16 Jan 2016 20:38:16 GMT" time="0.902">
-<testcase classname="Test API Users" name="Should create a user" time="0.855"/>
-<testcase classname="Test API Users" name="Should not create a user" time="0.012"/>
-<testcase classname="Test API Users" name="Should get all user" time="0.023"/>
-</testsuite>

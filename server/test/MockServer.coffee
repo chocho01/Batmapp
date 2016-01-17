@@ -4,12 +4,12 @@ process.env.NODE_ENV = "test"
 express = require('express')
 config = require('../config/config')
 glob = require('glob')
-mockgoose = require('mockgoose')
 md5 = require('md5')
 mongoose = require('mongoose')
 
-mockgoose(mongoose)
-mongoose.connect(config.db)
+mongoose.connect(config.db, ->
+  mongoose.connection.db.dropDatabase()
+)
 db = mongoose.connection
 db.on 'error', ()->
   throw new Error('unable to connect to database at ' + config.db)
@@ -18,8 +18,6 @@ db.on 'error', ()->
 models = glob.sync(config.root + '/app/models/*.coffee')
 models.forEach (model)->
   require(model)
-
-mockgoose.reset ->
 
 app = express()
 
