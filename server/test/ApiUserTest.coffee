@@ -16,10 +16,20 @@ describe "Test API Users", ()->
       lastName: "Choraine"
     .expect 200, done
 
-  it "Should not create a user", (done)->
+  it "Should not create a user (missing email)", (done)->
     request
     .post '/api/users'
     .send
+        password : "martin"
+        firstName : "Martin"
+        lastName: "Choraine"
+    .expect 400, done
+
+  it "Should not create a user (wrong email)", (done)->
+    request
+    .post '/api/users'
+    .send
+        email : "emailpasbon"
         password : "martin"
         firstName : "Martin"
         lastName: "Choraine"
