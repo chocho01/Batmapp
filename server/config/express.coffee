@@ -8,6 +8,10 @@ bodyParser = require 'body-parser'
 compress = require 'compression'
 methodOverride = require 'method-override'
 
+passport = require 'passport'
+flash    = require 'connect-flash'
+session  = require 'express-session'
+
 module.exports = (app, config) ->
   env = process.env.NODE_ENV || 'development'
   app.locals.ENV = env;
@@ -17,6 +21,13 @@ module.exports = (app, config) ->
   app.set 'view engine', 'ejs'
 
   # app.use(favicon(config.root + '/public/img/favicon.ico'));
+
+  require('./passport') passport
+  app.use(session({ secret: 'MartinIsAwesome' }))
+  app.use(passport.initialize())
+  app.use(passport.session())
+  app.use(flash())
+
   app.use bodyParser.json()
   app.use bodyParser.urlencoded(
     extended: true

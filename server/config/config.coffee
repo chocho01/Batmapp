@@ -8,7 +8,7 @@ config =
     app:
       name: 'server'
     port: 3000
-    db: 'mongodb://localhost/batmapp'
+    db: 'mongodb://localhost:27017/batmapp'
 
   test:
     root: rootPath

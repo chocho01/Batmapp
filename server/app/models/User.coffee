@@ -19,5 +19,5 @@ UserSchema = new Schema(
 
 )
 
-mongoose.model 'User', UserSchema
+mongoose.model 'user', UserSchema
 

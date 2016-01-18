@@ -1,6 +1,6 @@
 mongoose = require 'mongoose'
 md5 = require 'md5'
-UserModel = mongoose.model 'User'
+UserModel = mongoose.model 'user'
 
 module.exports =
 

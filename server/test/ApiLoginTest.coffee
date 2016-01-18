@@ -3,7 +3,7 @@ server = require("./MockServer")
 supertest = require("supertest")
 request = null
 
-describe "Test API Users", ()->
+describe "Test API Login", ()->
 
   before (done)->
     server.app (app)->
@@ -20,32 +20,30 @@ describe "Test API Users", ()->
         lastName: "Choraine"
     .expect 200, done
 
-  it "Should not create a user (missing email)", (done)->
-    request
-    .post '/api/users'
-    .send
-        password: "martin"
-        firstName: "Martin"
-        lastName: "Choraine"
-    .expect 400, done
 
-  it "Should not create a user (wrong email)", (done)->
+  it "Should not log the users", (done)->
     request
-    .post '/api/users'
+    .post '/api/login'
     .send
-        email: "emailpasbon"
-        password: "martin"
-        firstName: "Martin"
-        lastName: "Choraine"
-    .expect 400, done
-
-  it "Should get all user", (done)->
-    request
-    .get '/api/users'
-    .end (err, res)->
-      expect(res.statusCode).to.equal 200
-      expect(res.body.length).to.equal 1
+        user: "martin.choraine@epsi.fr"
+        password: "martine"
+    .end (req, res)->
+      expect(res.statusCode).to.equal 401
+      expect(res.body.err).to.equal "Login or password is wrong"
       done()
+
+
+  it "Should log the users", (done)->
+    request
+    .post '/api/login'
+    .send
+        user: "martin.choraine@epsi.fr"
+        password: "martin"
+    .end (req, res)->
+      expect(res.statusCode).to.equal 200
+      expect(res.body.email).to.equal "martin.choraine@epsi.fr"
+      done()
+
 
   after (done)->
     server.shutdown()
