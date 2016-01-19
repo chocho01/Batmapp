@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Batmapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="********" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-IE-WLu">
+                                <rect key="frame" x="115" y="314" width="419" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="users_icon" translatesAutoresizingMaskIntoConstraints="NO" id="o3C-N6-zlV">
+                                <rect key="frame" x="75" y="264" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="G1z-Un-vjl"/>
+                                    <constraint firstAttribute="height" constant="25" id="bUZ-33-oPU"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="password_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jn2-2u-uMz">
+                                <rect key="frame" x="75" y="314" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="mYf-zY-FX1"/>
+                                    <constraint firstAttribute="width" constant="25" id="wxO-ao-Yyd"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbn-hw-9Hk">
+                                <rect key="frame" x="69" y="369" width="463" height="41"/>
+                                <color key="backgroundColor" red="0.21843951053277666" green="1" blue="0.65721013599737965" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Connexion">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onConnexionBtnClick:" destination="BYZ-38-t0r" eventType="touchDown" id="OdH-Uq-teZ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="q7D-UV-Rkd">
+                                <rect key="frame" x="150" y="77" width="300" height="104"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C0e-TN-noe">
+                                <rect key="frame" x="115" y="264" width="419" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C0e-TN-noe" firstAttribute="leading" secondItem="o3C-N6-zlV" secondAttribute="trailing" constant="10" id="0tH-Wu-R5X"/>
+                            <constraint firstItem="Fbn-hw-9Hk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Akr-kK-kYn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fbn-hw-9Hk" secondAttribute="trailing" constant="20" id="CDt-te-haZ"/>
+                            <constraint firstItem="bUi-IE-WLu" firstAttribute="leading" secondItem="jn2-2u-uMz" secondAttribute="trailing" constant="10" id="Cg1-qH-D6L"/>
+                            <constraint firstItem="Fbn-hw-9Hk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EuW-YB-nuK"/>
+                            <constraint firstItem="q7D-UV-Rkd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FJM-mr-ZKx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bUi-IE-WLu" secondAttribute="trailing" constant="30" id="QZz-VR-IKM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C0e-TN-noe" secondAttribute="trailing" constant="30" id="bAg-MY-1f9"/>
+                            <constraint firstItem="jn2-2u-uMz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="gdJ-ft-7UP"/>
+                            <constraint firstItem="o3C-N6-zlV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="pOF-2F-FPN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="EmailInput" destination="C0e-TN-noe" id="N2E-Pq-DsI"/>
+                        <outlet property="PasswordInput" destination="bUi-IE-WLu" id="9fj-OK-Ezv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="359"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="300" height="104"/>
+        <image name="password_icon" width="32" height="32"/>
+        <image name="users_icon" width="32" height="32"/>
+    </resources>
+</document>
