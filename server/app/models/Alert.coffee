@@ -22,19 +22,16 @@ AlertSchema = new Schema(
       required: true
     longitude:
       type: Number
-       required: true
+      required: true
   receiver:
     type: Array
   police:
     type: Boolean
-    required: true
   samu:
     type: Boolean
-    required: true
   solved:
     type: Boolean
-    required: true
 )
 
-mongoose.model 'Alert', AlertSchema
+mongoose.model 'alert', AlertSchema
 

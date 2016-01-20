@@ -1,18 +1,12 @@
-//
-//  ViewController.swift
-//  Batmapp
-//
-//  Created by Martin Choraine on 19/01/2016.
-//  Copyright © 2016 Martin Choraine. All rights reserved.
-//
-
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var PasswordInput: UITextField!
     @IBOutlet weak var EmailInput: UITextField!
+    @IBOutlet weak var messageText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +19,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onConnexionBtnClick(sender:AnyObject) {
-        if(PasswordInput.text != nil && EmailInput.text != nil){
-            print(PasswordInput.text)
-            print(PasswordInput.text)
+        if(!(PasswordInput.text ?? "").isEmpty && !(EmailInput.text ?? "").isEmpty){
             let parameters: [String:AnyObject] = ["user": EmailInput.text!, "password": PasswordInput.text!]
             Alamofire.request(.POST, "http://batmapp.martin-choraine.fr/api/login", parameters: parameters).responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                let statusCode = (response.response?.statusCode)!
+                if(statusCode==200)     {
+                    if let jsonObject = response.result.value {
+                        let user = User.parseUserFromJSON(JSON(jsonObject))
+                        print(user)
+                        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("alertListView") as! AlertListViewController
+                        self.presentViewController(vc, animated: true, completion: nil)
+                    }
+                } else {
+                    self.messageText.text = "L'utilisateur et/ou le mot de passe sont incorrects"
                 }
             }
+        } else {
+            self.messageText.text = "Tous les champs sont obligatoires"
         }
     }
 

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "mocha --compilers coffee:coffee-script/register --recursive -R xunit test/ > test-reports.xml"
+    "test": "mocha --compilers coffee:coffee-script/register --recursive -R xunit test/ > test-reports.xml",
+    "generatedoc": "apidoc -i app/controllers/ -o public && mv public/index.html app/views/index.ejs"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
