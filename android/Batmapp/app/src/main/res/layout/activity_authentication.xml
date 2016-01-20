@@ -11,17 +11,17 @@
         android:src="@drawable/bat_logo"
         android:layout_gravity="center"
         android:layout_above="@+id/loginText"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/loginText" />
+        android:layout_alignEnd="@+id/passwordText" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loginText"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/passwordText"
+        android:inputType="textEmailAddress"
         android:hint="@string/email"
-        android:layout_alignEnd="@+id/passwordText" />
+        android:layout_alignEnd="@+id/auth_logo"
+        android:layout_alignStart="@+id/auth_logo"
+        android:layout_above="@+id/passwordText" />
 
     <EditText
         android:layout_width="match_parent"
@@ -58,5 +58,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/auth_logo" />
 
 </RelativeLayout>

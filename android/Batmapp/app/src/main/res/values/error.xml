@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_authentication_title">Erreur d\'authentification</string>
+    <string name="error_authentication_champs">Renseigné tous les champs.</string>
+    <string name="error_authentication_401">Email ou Mot de passe érroné</string>
+</resources>
