@@ -22,7 +22,7 @@ AlertSchema = new Schema(
       required: true
     longitude:
       type: Number
-       required: true
+      required: true
   receiver:
     type: Array
   police:
