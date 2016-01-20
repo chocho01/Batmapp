@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="server_base_url">https://batmapp.martin-choraine.fr/</string>
+    <string name="api_user">https://batmapp.martin-choraine.fr/api/users/</string>
+    <string name="api_login">https://batmapp.martin-choraine.fr/api/login/</string>
+</resources>
