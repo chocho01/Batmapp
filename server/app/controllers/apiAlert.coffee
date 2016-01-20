@@ -24,7 +24,7 @@ router.get '/', (req, res, next) ->
 
 
 ###
-  @api {post} /alerts/ Request all alerts informations
+  @api {post} /alerts/ Request create an alert
   @apiGroup Alerts
   @apiSuccess {Object} alerts created
   @apiSuccess {Date}   alert.date   Alert creation date
