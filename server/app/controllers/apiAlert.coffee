@@ -18,7 +18,7 @@ module.exports = (app) ->
   @apiSuccess {Number}   alert.geoPosition.longitude   position of user
 ###
 router.get '/', (req, res, next) ->
-  AlertRepository.getAll (alerts)->
+  AlertRepository.getAll (err, alerts)->
     res.json(alerts)
 
 
@@ -34,5 +34,5 @@ router.get '/', (req, res, next) ->
   @apiSuccess {Number}   alert.geoPosition.longitude   position of user
 ###
 router.post '/', (req, res, next) ->
-  AlertRepository.createAlert req.body, (alert)->
+  AlertRepository.createAlert req.body, (err, alert)->
     res.json(alert)
