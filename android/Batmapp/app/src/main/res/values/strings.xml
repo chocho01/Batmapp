@@ -3,6 +3,12 @@
     <string name="app_name">BatMapp</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Ressources User-->
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+
     <!-- SharedPreferences UserDetail-->
     <string name="detail_user_session">userDetails</string>
     <string name="email_detail_user">email</string>
@@ -11,15 +17,13 @@
 
     <!-- Ressources Authentication-->
     <string name="title_activity_authentication">Authentification</string>
-    <string name="email">Email</string>
-    <string name="password">Mot de passe</string>
     <string name="connexion">Connexion</string>
     <string name="register">S\'enregistrer</string>
 
     <!-- Ressources Registration-->
     <string name="title_activity_registration">Registration</string>
-    <string name="title_activity_list_alert">ListAlert</string>
 
-    <string name="hello_world">Hello world!</string>
+    <!-- Ressources ListAlert-->
+    <string name="title_activity_list_alert">ListAlert</string>
 
 </resources>

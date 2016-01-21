@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="server_base_url">http://batmapp.martin-choraine.fr/</string>
-    <string name="api_user">http://batmapp.martin-choraine.fr/api/users</string>
+
 
     <!-- Authentification-->
     <string name="api_login_url">http://batmapp.martin-choraine.fr/api/login</string>
     <string name="api_login_param_user">user</string>
     <string name="api_login_param_pwd">password</string>
+
+    <!--  User-->
+    <string name="api_user_url">http://batmapp.martin-choraine.fr/api/users</string>
+    <string name="api_user_email">email</string>
+    <string name="api_user_password">password</string>
+    <string name="api_user_fName">firstName</string>
+    <string name="api_user_lName">lastName</string>
+
+
 </resources>

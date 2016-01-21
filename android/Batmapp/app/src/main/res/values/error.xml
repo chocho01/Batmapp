@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Authentification-->
     <string name="error_authentication_title">Erreur d\'authentification</string>
-    <string name="error_authentication_champs">Renseigné tous les champs.</string>
+    <string name="error_authentication_champs">Veuillez renseigner tous les champs.</string>
     <string name="error_authentication_401">Email ou Mot de passe érroné</string>
+
+    <!-- Registration-->
+    <string name="error_registration_title">Erreur d\'enregistrement</string>
+    <string name="error_registration_server">Le serveur n\'est pas disponible pour le moment</string>
 </resources>
