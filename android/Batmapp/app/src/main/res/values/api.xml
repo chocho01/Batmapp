@@ -15,5 +15,9 @@
     <string name="api_user_fName">firstName</string>
     <string name="api_user_lName">lastName</string>
 
+    <!-- List Alerts-->
+    <string name="api_listAlert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
+
+
 
 </resources>

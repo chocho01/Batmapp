@@ -25,5 +25,7 @@
 
     <!-- Ressources ListAlert-->
     <string name="title_activity_list_alert">ListAlert</string>
+    <string name="list_alert_sender_view">appel au secour</string>
+    <string name="list_alert_receiver_view">sont en chemin(s)</string>
 
 </resources>
