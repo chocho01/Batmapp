@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -13,7 +15,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:id="@+id/imageView"
+            android:id="@+id/DetailimageView"
             android:src="@drawable/unknow"/>
 
         <LinearLayout
@@ -23,19 +25,19 @@
             android:layout_marginLeft="10dp">
 
             <TextView
-                android:id="@+id/TypeAlertText"
+                android:id="@+id/DetailTypeAlertText"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/SenderText"
+                android:id="@+id/DetailSenderText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/ReceiverText"
+                android:id="@+id/DetailReceiverText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -43,4 +45,12 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:id="@+id/map"
+        tools:context="com.epsi.batmapp.activity.DetailAlert"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+</LinearLayout>

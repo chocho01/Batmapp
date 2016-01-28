@@ -1,7 +1,10 @@
 package com.epsi.batmapp.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.lang.reflect.Type;
@@ -69,5 +72,16 @@ public class ListAlert extends AppCompatActivity {
     public void displayData(){
         adapter = new ListAlertAdapter(this, listAlerts);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Alert alertSelected = listAlerts.get(i);
+                Intent goToDetailAlert = new Intent(view.getContext(),DetailAlert.class);
+                goToDetailAlert.putExtra(getString(R.string.alert_selected),alertSelected);
+                startActivity(goToDetailAlert);
+                overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
+            }
+        });
     }
 }

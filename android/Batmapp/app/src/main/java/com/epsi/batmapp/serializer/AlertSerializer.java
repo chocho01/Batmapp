@@ -47,7 +47,7 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
         jsonAlert.add(LNT, new JsonPrimitive(alert.getCoord().longitude));
 
         JsonArray receivers = new JsonArray();
-        Integer[] idReceiver = alert.getReceiver();
+        int[] idReceiver = alert.getReceiver();
         for(int i :  idReceiver){
             receivers.add(new JsonPrimitive(i));
         }
@@ -81,7 +81,7 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
         alert.setCoord(new LatLng(geo.get(LAT).getAsDouble(),geo.get(LAT).getAsDouble()));
 
         JsonArray idReceivers = jsonAlert.get(RECEIVER).getAsJsonArray();
-        Integer[] receivers = new Integer[idReceivers.size()];
+        int[] receivers = new int[idReceivers.size()];
         for(int i =0; i<idReceivers.size();i++){
             receivers[i]=idReceivers.get(i).getAsInt();
         }

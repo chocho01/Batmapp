@@ -42,7 +42,7 @@ public class ListAlertAdapter extends ArrayAdapter<Alert> {
         TextView senderText = (TextView) rowView.findViewById(R.id.SenderText);
         TextView receiverText = (TextView) rowView.findViewById(R.id.ReceiverText);
 
-        typeText.setText(itemsArrayList.get(position).getType());
+        typeText.setText(itemsArrayList.get(position).getType().toUpperCase());
         senderText.setText(itemsArrayList.get(position).getSender() +SPACE+ context.getString(R.string.list_alert_sender_view));
         receiverText.setText(itemsArrayList.get(position).getReceiver().length +SPACE+ context.getString(R.string.list_alert_receiver_view));
 

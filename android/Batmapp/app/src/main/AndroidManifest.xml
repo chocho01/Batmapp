@@ -3,6 +3,8 @@
     package="com.epsi.batmapp" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -31,8 +33,19 @@
         </activity>
         <activity
             android:name=".activity.ListAlert"
-            android:label="@string/title_activity_list_alert" >
+            android:label="@string/title_activity_list_alert"
+            android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activity.DetailAlert"
+            android:label="@string/title_activity_detail_alert" >
+        </activity>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>
