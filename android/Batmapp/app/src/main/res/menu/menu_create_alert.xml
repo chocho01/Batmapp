@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.epsi.batmapp.activity.CreateAlert">
+
+    <item   android:id="@+id/createAlert"
+            android:title="@string/menu_list_alert_item"
+            android:orderInCategory="1" />
+
+</menu>

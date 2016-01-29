@@ -1,6 +1,7 @@
 package com.epsi.batmapp.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,18 @@ public class ListAlertAdapter extends ArrayAdapter<Alert> {
         typeText.setText(itemsArrayList.get(position).getType().toUpperCase());
         senderText.setText(itemsArrayList.get(position).getSender() +SPACE+ context.getString(R.string.list_alert_sender_view));
         receiverText.setText(itemsArrayList.get(position).getReceiver().length +SPACE+ context.getString(R.string.list_alert_receiver_view));
+
+//        switch (itemsArrayList.get(position).getCriticity()){
+//            case 1:
+//                typeText.setTextColor(Color.GREEN);
+//                break;
+//            case 2:
+//                typeText.setTextColor(Color.YELLOW);
+//                break;
+//            case 3:
+//                typeText.setTextColor(Color.RED);
+//                break;
+//        }
 
         return rowView;
     }

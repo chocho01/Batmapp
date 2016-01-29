@@ -17,9 +17,10 @@
     <!-- List Alerts-->
     <string name="api_listAlert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
 
+    <!-- Create Alert-->
+    <string name="api_create_alert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
+
     <!-- Google Map Api Key-->
-    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
-        AIzaSyBSCu5-F78hCRr4Shivv2WaQk4orDsqXeU
-    </string>
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyBSCu5-F78hCRr4Shivv2WaQk4orDsqXeU</string>
 
 </resources>

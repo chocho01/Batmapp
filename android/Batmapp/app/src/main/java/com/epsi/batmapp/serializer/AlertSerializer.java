@@ -29,7 +29,7 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
     private static String TYPE ="type";
     private static String GEO ="geoPosition";
     private static String LAT ="latitude";
-    private static String LNT ="lontitude";
+    private static String LNT ="longitude";
     private static String RECEIVER ="receiver";
     private static String POLICE ="police";
     private static String SAMU ="samu";
@@ -39,22 +39,22 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
     @Override
     public JsonElement serialize(Alert alert, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonAlert = new JsonObject();
-        jsonAlert.add(DATE, new JsonPrimitive(alert.getDate().toString()));
+//        jsonAlert.add(DATE, new JsonPrimitive(alert.getDate().toString()));
         jsonAlert.add(SENDER, new JsonPrimitive(alert.getSender()));
         jsonAlert.add(CRITICITY, new JsonPrimitive(alert.getCriticity()));
         jsonAlert.add(TYPE, new JsonPrimitive(alert.getType()));
         jsonAlert.add(LAT, new JsonPrimitive(alert.getCoord().latitude));
         jsonAlert.add(LNT, new JsonPrimitive(alert.getCoord().longitude));
 
-        JsonArray receivers = new JsonArray();
-        int[] idReceiver = alert.getReceiver();
-        for(int i :  idReceiver){
-            receivers.add(new JsonPrimitive(i));
-        }
-        jsonAlert.add(RECEIVER,receivers);
-        jsonAlert.add(POLICE,new JsonPrimitive(alert.getPolice()));
-        jsonAlert.add(SAMU,new JsonPrimitive(alert.getSamu()));
-        jsonAlert.add(SOLVED, new JsonPrimitive(alert.isSolved()));
+//        JsonArray receivers = new JsonArray();
+//        int[] idReceiver = alert.getReceiver();
+//        for(int i :  idReceiver){
+//            receivers.add(new JsonPrimitive(i));
+//        }
+//        jsonAlert.add(RECEIVER,receivers);
+//        jsonAlert.add(POLICE,new JsonPrimitive(alert.getPolice()));
+//        jsonAlert.add(SAMU,new JsonPrimitive(alert.getSamu()));
+//        jsonAlert.add(SOLVED, new JsonPrimitive(alert.isSolved()));
         return jsonAlert;
     }
 
