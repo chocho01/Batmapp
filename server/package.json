@@ -24,7 +24,8 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.3.0",
-    "supertest": "^1.1.0"
+    "supertest": "^1.1.0",
+    "verbal-expressions": "^0.2.1"
   },
   "devDependencies": {
     "coffee-script": "^1.9.1",
