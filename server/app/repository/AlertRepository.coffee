@@ -6,6 +6,7 @@ module.exports =
   getAll : (callback)->
     AlertModel
     .find()
+    .sort({date : -1})
     .exec (err, data)->
       callback(err, data)
 
