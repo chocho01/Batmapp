@@ -28,7 +28,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repository/AlertRepository.coffee" afterPath="$PROJECT_DIR$/app/repository/AlertRepository.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/AlertLauncher.coffee" afterPath="$PROJECT_DIR$/app/services/AlertLauncher.coffee" />
     </list>
     <ignored path="server.iws" />
@@ -74,8 +73,8 @@
       <file leaf-file-name="AlertLauncher.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5344418">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.5700713">
+              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -901,8 +900,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5344418">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.5700713">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
           <folding />
         </state>
       </provider>
