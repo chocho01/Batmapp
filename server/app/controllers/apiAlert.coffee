@@ -1,7 +1,7 @@
 express  = require 'express'
 router = express.Router()
-mongoose = require 'mongoose'
 AlertRepository  = require '../repository/AlertRepository.coffee'
+AlertLauncher = require '../services/AlertLauncher.coffee'
 
 module.exports = (app) ->
   app.use '/api/alerts', router
@@ -30,9 +30,18 @@ router.get '/', (req, res, next) ->
   @apiSuccess {Date}   alert.date   Alert creation date
   @apiSuccess {Number}   alert.criticity   Alert criticity
   @apiSuccess {String}   alert.type   Alert type
+  @apiSuccess {Object}   alert.geoPosition   position of user
   @apiSuccess {Number}   alert.geoPosition.latitude   position of user
   @apiSuccess {Number}   alert.geoPosition.longitude   position of user
 ###
 router.post '/', (req, res, next) ->
   AlertRepository.createAlert req.body, (err, alert)->
+    if(err)
+      res.status(400).json(err)
     res.json(alert)
+
+
+router.post '/command', (req, res, next) ->
+  command  = req.body.msg
+  AlertLauncher command, (result)->
+    res.send({result : result})
