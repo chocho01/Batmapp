@@ -7,19 +7,20 @@ module.exports = (commands, callback)->
   aperoAlert = new VerEx().then("apéro").or("apero").or("go to the bar").or("apéro")
 
   commands.forEach (command)->
-    command = command.toLowerCase()
-    if wantLaunchAlert.test(command)
-      if violAlert.test(command)
-        AlertRepository.createSpeechAlert("Viol")
-        callback("Ok j'avertis tout le monde du viol")
-        break
-      if violAlert.test(aperoAlert)
-        AlertRepository.createSpeechAlert("Apéro")
-        callback("Ok j'avertis tout le monde pour l'apéro")
-        break
-      else
-        AlertRepository.createSpeechAlert("Inconnu")
-        callback("Ok j'avertis tout le monde")
-        break
+    if !isCmdUnderstand
+      command = command.toLowerCase()
+      if wantLaunchAlert.test(command)
+        if violAlert.test(command)
+          AlertRepository.createSpeechAlert("Viol")
+          callback("Ok j'avertis tout le monde du viol")
+          isCmdUnderstand = true
+        if violAlert.test(aperoAlert)
+          AlertRepository.createSpeechAlert("Apéro")
+          callback("Ok j'avertis tout le monde pour l'apéro")
+          isCmdUnderstand = true
+        else
+          AlertRepository.createSpeechAlert("Inconnu")
+          callback("Ok j'avertis tout le monde")
+          isCmdUnderstand = true
 
   callback("Je n'ai pas compris votre demande")
