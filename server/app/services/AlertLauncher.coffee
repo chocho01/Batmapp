@@ -7,6 +7,7 @@ module.exports = (commands, callback)->
   aperoAlert = new VerEx().then("apéro").or("apero").or("go to the bar").or("apéro")
 
   commands.forEach (command)->
+    command = command.toLowerCase()
     if wantLaunchAlert.test(command)
       if violAlert.test(command)
         AlertRepository.createSpeechAlert("Viol")
