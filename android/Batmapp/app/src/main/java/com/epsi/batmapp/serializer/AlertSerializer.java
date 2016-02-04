@@ -78,7 +78,7 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
         alert.setType(jsonAlert.get(TYPE).getAsString());
 
         JsonObject geo = jsonAlert.get(GEO).getAsJsonObject();
-        alert.setCoord(new LatLng(geo.get(LAT).getAsDouble(),geo.get(LAT).getAsDouble()));
+        alert.setCoord(new LatLng(geo.get(LAT).getAsDouble(),geo.get(LNT).getAsDouble()));
 
         JsonArray idReceivers = jsonAlert.get(RECEIVER).getAsJsonArray();
         int[] receivers = new int[idReceivers.size()];
