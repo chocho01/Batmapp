@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4f4b550-8d58-4db3-b20d-6c4a51a50c91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListTable.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Assets.xcassets/arrow-left-bold.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Assets.xcassets/bell_icon.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/SideViewController.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/service/SpeechRecognizer.swift" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp-Bridging-Header.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp-Header.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Batmapp-Bridging-Header.m" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ViewController.swift" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.xcworkspace/xcuserdata/mchoraine.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.xcworkspace/xcuserdata/mchoraine.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.pbxproj" />
@@ -16,6 +12,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AddAlertController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AddAlertController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Alert.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Alert.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListTable.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListTable.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListViewController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListViewController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableCell.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableCell.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableView.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableView.swift" />
@@ -23,11 +20,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Base.lproj/Main.storyboard" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Info.plist" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Info.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/InscriptionController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/InscriptionController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.h" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.m" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/SideViewController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/SideViewController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserSession.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserSession.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/service/SpeechRecognizer.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/service/SpeechRecognizer.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/AlertLauncher.coffee" afterPath="$PROJECT_DIR$/app/services/AlertLauncher.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" afterPath="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,11 +50,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ApiAlert.coffee" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiAlert.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/ApiAlert.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.148149">
-              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.75059384">
+              <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -69,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlertLauncher.coffee" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AlertLauncher.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.391924">
+            <state vertical-scroll-proportion="-6.111111">
               <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
@@ -198,9 +199,9 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/models/Alert.coffee" />
         <option value="$PROJECT_DIR$/app/services/LaunchAlert.coffee" />
-        <option value="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" />
         <option value="$PROJECT_DIR$/app/repository/AlertRepository.coffee" />
         <option value="$PROJECT_DIR$/app/services/AlertLauncher.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" />
       </list>
     </option>
   </component>
@@ -849,6 +850,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.111111">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/repository/AlertRepository.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.2222223">
@@ -859,16 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ApiAlert.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.148149">
-          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.391924">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.75059384">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
           <folding />
         </state>
       </provider>

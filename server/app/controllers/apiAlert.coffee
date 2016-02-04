@@ -45,4 +45,4 @@ router.post '/', (req, res, next) ->
 router.post '/command', (req, res, next) ->
   command  = req.body.msg
   AlertLauncher command, (result)->
-    res.send(result)
+    res.send({result : result})
