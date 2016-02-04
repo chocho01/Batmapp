@@ -25,8 +25,8 @@ module.exports =
     alert = new AlertModel
       date: new Date()
       sender: "Bot"
-      criticity: 4
-      type: type
+      criticity: type.criticity
+      type: type.name
       geoPosition:
         latitude: 3.555
         longitude: 12.5643
