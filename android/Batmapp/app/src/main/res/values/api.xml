@@ -2,7 +2,6 @@
 <resources>
     <string name="server_base_url">http://batmapp.martin-choraine.fr/</string>
 
-
     <!-- Authentification-->
     <string name="api_login_url">http://batmapp.martin-choraine.fr/api/login</string>
     <string name="api_login_param_user">user</string>
@@ -15,5 +14,13 @@
     <string name="api_user_fName">firstName</string>
     <string name="api_user_lName">lastName</string>
 
+    <!-- List Alerts-->
+    <string name="api_listAlert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
+
+    <!-- Create Alert-->
+    <string name="api_create_alert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
+
+    <!-- Google Map Api Key-->
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyBSCu5-F78hCRr4Shivv2WaQk4orDsqXeU</string>
 
 </resources>

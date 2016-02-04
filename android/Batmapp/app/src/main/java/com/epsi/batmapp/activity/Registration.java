@@ -3,7 +3,7 @@ package com.epsi.batmapp.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.epsi.batmapp.R;
@@ -20,7 +21,6 @@ import com.epsi.batmapp.model.User;
 import com.epsi.batmapp.serializer.UserSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,6 +43,7 @@ public class Registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bat_green)));
 
         emailText = (EditText) findViewById(R.id.emailText);
         pwdText = (EditText) findViewById(R.id.pwdRegistrationText);
@@ -91,7 +92,6 @@ public class Registration extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
                     (Request.Method.POST, url, jsonUser, new Response.Listener<JSONObject>() {
 
