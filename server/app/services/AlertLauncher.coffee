@@ -6,7 +6,7 @@ module.exports = (commands, user, callback)->
   wantLaunchAlert = new VerEx().then("alerte").or("secours").or("alert").or("aide").or("help")
   violAlert = new VerEx().then("viol").or("viole").or("violer").or("violé")
   aperoAlert = new VerEx().then("apéro").or("apero").or("go to the bar").or("boire")
-  incendieAlert = new VerEx().then("incendie").or("feu").or("brule").or("pompier")
+  incendieAlert = new VerEx().then("incendie").or("feu").or("brûle").or("pompier").or("brûler")
 
   commands.forEach (command)->
     if !isCmdUnderstand

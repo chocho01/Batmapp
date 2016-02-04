@@ -35,3 +35,9 @@ module.exports =
         longitude: 12.5643
 
     alert.save()
+
+  onGoing : (idAlert, user, callback)->
+    AlertModel
+    .findById(idAlert)
+    .exec (err, alert)->
+      alert.receiver.push user._id
