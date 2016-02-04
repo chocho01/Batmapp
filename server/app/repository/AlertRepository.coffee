@@ -24,10 +24,10 @@ module.exports =
     alert.save (err, alertSaved)->
       callback(err,alertSaved)
 
-  createSpeechAlert : (type)->
+  createSpeechAlert : (type, user)->
     alert = new AlertModel
       date: new Date()
-      sender: "Bot"
+      sender: user.firstName+" "+user.lastName
       criticity: type.criticity
       type: type.name
       geoPosition:
