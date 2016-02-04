@@ -1,6 +1,5 @@
 express  = require 'express'
 router = express.Router()
-mongoose = require 'mongoose'
 AlertRepository  = require '../repository/AlertRepository.coffee'
 AlertLauncher = require '../services/AlertLauncher.coffee'
 

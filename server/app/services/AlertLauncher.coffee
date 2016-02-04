@@ -1,11 +1,19 @@
 VerEx = require 'verbal-expressions'
+AlertRepository  = require '../repository/AlertRepository.coffee'
 
+module.exports = (commands, callback)->
+  wantLaunchAlert = new VerEx().then("alerte").or("secours").or("alert").or("aide").or("help")
+  violAlert = new VerEx().then("viol").or("viole").or("violer").or("violé")
 
-
-module.exports = (command, callback)->
-    command = command[0]
-    wantLaunchAlert = new VerEx().then("alerte").or("secours").or("alert").or("aide").or("help")
+  commands.forEach (command)->
     if wantLaunchAlert.test(command)
-      callback("Ok j'avertis tout le monde")
-    else
-      callback("Je n'ai pas compris votre demande")
+      if violAlert.test(command)
+        AlertRepository.createSpeechAlert("Viol")
+        callback("Ok j'avertis tout le monde du viol")
+        break
+      else
+        AlertRepository.createSpeechAlert("Inconnu")
+        callback("Ok j'avertis tout le monde")
+        break
+
+  callback("Je n'ai pas compris votre demande")

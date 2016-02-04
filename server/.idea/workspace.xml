@@ -28,7 +28,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" afterPath="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repository/AlertRepository.coffee" afterPath="$PROJECT_DIR$/app/repository/AlertRepository.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/AlertLauncher.coffee" afterPath="$PROJECT_DIR$/app/services/AlertLauncher.coffee" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,11 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ApiAlert.coffee" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApiAlert.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/ApiAlert.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75059384">
-              <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+            <state vertical-scroll-proportion="12.740741">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,18 +64,18 @@
       <file leaf-file-name="AlertRepository.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/repository/AlertRepository.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.2222223">
-              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+            <state vertical-scroll-proportion="-6.148148">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlertLauncher.coffee" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AlertLauncher.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.111111">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5344418">
+              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -199,9 +200,9 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/models/Alert.coffee" />
         <option value="$PROJECT_DIR$/app/services/LaunchAlert.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" />
         <option value="$PROJECT_DIR$/app/repository/AlertRepository.coffee" />
         <option value="$PROJECT_DIR$/app/services/AlertLauncher.coffee" />
-        <option value="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" />
       </list>
     </option>
   </component>
@@ -265,6 +266,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -850,26 +883,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
+    <entry file="file://$PROJECT_DIR$/app/controllers/ApiAlert.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.111111">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="12.740741">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/repository/AlertRepository.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2222223">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        <state vertical-scroll-proportion="-6.148148">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ApiAlert.coffee">
+    <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75059384">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.5344418">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
           <folding />
         </state>
       </provider>

@@ -21,5 +21,14 @@ module.exports =
         latitude: form.latitude
         longitude: form.longitude
 
-    alert.save (err, alertSaved)->
-      callback(err,alertSaved)
+  createSpeechAlert : (type)->
+    alert = new AlertModel
+      date: new Date()
+      sender: "Bot"
+      criticity: 4
+      type: type
+      geoPosition:
+        latitude: 3.555
+        longitude: 12.5643
+
+    alert.save()
