@@ -23,7 +23,7 @@ router.get '/', Authentification.isAuth, (req, res, next) ->
   @apiGroup Users
   @apiSuccess {Object} user User created
 ###
-router.post '/', Authentification.isAuth, (req, res, next) ->
+router.post '/', (req, res, next) ->
   UserRepository.createUser req.body, (err, user) ->
     res.status(400).json() if err
     res.json(user)

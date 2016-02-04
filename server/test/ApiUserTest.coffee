@@ -20,6 +20,17 @@ describe "Test API Users", ()->
         lastName: "Choraine"
     .expect 200, done
 
+  it "Should log the users", (done)->
+    request
+    .post '/api/login'
+    .send
+        user: "martin.choraine@epsi.fr"
+        password: "martin"
+    .end (req, res)->
+      expect(res.statusCode).to.equal 200
+      expect(res.body.email).to.equal "martin.choraine@epsi.fr"
+      done()
+
   it "Should not create a user (missing email)", (done)->
     request
     .post '/api/users'
