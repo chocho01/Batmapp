@@ -2,7 +2,7 @@ VerEx = require 'verbal-expressions'
 AlertRepository  = require '../repository/AlertRepository.coffee'
 TypeAlert  = require '../utils/TypeAlert.coffee'
 
-module.exports = (commands, callback)->
+module.exports = (commands, user, callback)->
   wantLaunchAlert = new VerEx().then("alerte").or("secours").or("alert").or("aide").or("help")
   violAlert = new VerEx().then("viol").or("viole").or("violer").or("violé")
   aperoAlert = new VerEx().then("apéro").or("apero").or("go to the bar").or("boire")
@@ -12,19 +12,19 @@ module.exports = (commands, callback)->
     if !isCmdUnderstand
       command = command.toLowerCase()
       if violAlert.test(command)
-        AlertRepository.createSpeechAlert(TypeAlert["viol"])
+        AlertRepository.createSpeechAlert(TypeAlert["viol"], user)
         callback("Ok j'avertis tout le monde du viol")
         isCmdUnderstand = true
       else if aperoAlert.test(command)
-        AlertRepository.createSpeechAlert(TypeAlert["apero"])
+        AlertRepository.createSpeechAlert(TypeAlert["apero"], user)
         callback("Ok j'avertis tout le monde pour l'apéro")
         isCmdUnderstand = true
       else if incendieAlert.test(command)
-        AlertRepository.createSpeechAlert(TypeAlert["incendie"])
+        AlertRepository.createSpeechAlert(TypeAlert["incendie"], user)
         callback("Ok j'avertis tout le monde de l'incendie")
         isCmdUnderstand = true
       else if wantLaunchAlert.test(command)
-        AlertRepository.createSpeechAlert(TypeAlert["unknow"])
+        AlertRepository.createSpeechAlert(TypeAlert["unknow"], user)
         callback("Ok j'avertis tout le monde")
         isCmdUnderstand = true
 

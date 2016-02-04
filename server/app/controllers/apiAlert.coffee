@@ -1,7 +1,8 @@
-express  = require 'express'
+express = require 'express'
 router = express.Router()
-AlertRepository  = require '../repository/AlertRepository.coffee'
+AlertRepository = require '../repository/AlertRepository.coffee'
 AlertLauncher = require '../services/AlertLauncher.coffee'
+Authentification = require '../utils/Authentification.coffee'
 
 module.exports = (app) ->
   app.use '/api/alerts', router
@@ -22,7 +23,6 @@ router.get '/', (req, res, next) ->
     res.json(alerts)
 
 
-
 ###
   @api {post} /alerts/ Request create an alert
   @apiGroup Alerts
@@ -40,8 +40,24 @@ router.post '/', (req, res, next) ->
       res.status(400).json(err)
     res.json(alert)
 
+###
+   @api {post} /alerts/command Request create an alert from vocal speech
+   @apiGroup Alerts
+   @apiParam {[String]} msg    List of speech command
+   @apiSuccess {String} result of command
+###
+router.post '/command', Authentification.isAuth, (req, res, next) ->
+  command = req.body.msg
+  AlertLauncher command, req.user, (result)->
+    res.send({result: result})
 
-router.post '/command', (req, res, next) ->
-  command  = req.body.msg
-  AlertLauncher command, (result)->
-    res.send({result : result})
+
+###
+  @api {put} /alerts/callPolice/:alertID Request create an alert
+  @apiGroup Alerts
+###
+router.put '/callPolice/{alertID}', (req, res, next) ->
+  AlertRepository.callPolice req.params.alertID, (err, alert)->
+    if(err)
+      res.status(400).json(err)
+    res.json(alert)

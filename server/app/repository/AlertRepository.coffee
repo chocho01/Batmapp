@@ -21,6 +21,9 @@ module.exports =
         latitude: form.latitude
         longitude: form.longitude
 
+    alert.save (err, alertSaved)->
+      callback(err,alertSaved)
+
   createSpeechAlert : (type)->
     alert = new AlertModel
       date: new Date()

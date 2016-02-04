@@ -1,6 +1,7 @@
 express  = require 'express'
 router = express.Router()
 UserRepository  = require '../repository/UserRepository.coffee'
+Authentification  = require '../utils/Authentification.coffee'
 
 module.exports = (app) ->
   app.use '/api/users', router
@@ -12,7 +13,7 @@ module.exports = (app) ->
   @apiSuccess {String}   users.email   Users email.
 
 ###
-router.get '/', (req, res, next) ->
+router.get '/', Authentification.isAuth, (req, res, next) ->
   UserRepository.getAll (err, users) ->
     return next(err) if err
     res.json(users)
@@ -22,7 +23,7 @@ router.get '/', (req, res, next) ->
   @apiGroup Users
   @apiSuccess {Object} user User created
 ###
-router.post '/', (req, res, next) ->
+router.post '/', Authentification.isAuth, (req, res, next) ->
   UserRepository.createUser req.body, (err, user) ->
     res.status(400).json() if err
     res.json(user)

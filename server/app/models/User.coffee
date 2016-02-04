@@ -16,6 +16,11 @@ UserSchema = new Schema(
   lastName:
     type: String
     required: true
+  lastPosition:
+    latitude:
+      type: Number
+    longitude:
+      type: Number
 
 )
 
