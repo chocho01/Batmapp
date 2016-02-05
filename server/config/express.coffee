@@ -58,7 +58,7 @@ module.exports = (app, config) ->
 
   # development error handler
   # will print stacktrace
-  if app.get('env') != 'test'
+  if app.get('env') == 'production'
     app.use logger 'dev'
 
   if app.get('env') == 'development'

@@ -22,6 +22,6 @@ config =
     app:
       name: 'server'
     port: 3000
-    db: 'mongodb://localhost/server-production'
+    db: 'mongodb://localhost:27017/batmapp'
 
 module.exports = config[env]
