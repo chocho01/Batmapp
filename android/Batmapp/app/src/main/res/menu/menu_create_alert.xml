@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.epsi.batmapp.activity.CreateAlert">
 
-    <item   android:id="@+id/createAlert"
-            android:title="@string/menu_list_alert_item"
-            android:orderInCategory="1" />
+    <item
+        android:id="@+id/speech_recorder_button"
+        android:icon="@drawable/ic_microphone"
+        android:title="@string/speech"
+        app:showAsAction="ifRoom"/>
 
 </menu>

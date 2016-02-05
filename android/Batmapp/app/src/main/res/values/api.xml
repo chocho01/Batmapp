@@ -19,6 +19,7 @@
 
     <!-- Create Alert-->
     <string name="api_create_alert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
+    <string name="api_create_vocal_alert_url">http://batmapp.martin-choraine.fr/api/alerts/command</string>
 
     <!-- Google Map Api Key-->
     <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyBSCu5-F78hCRr4Shivv2WaQk4orDsqXeU</string>

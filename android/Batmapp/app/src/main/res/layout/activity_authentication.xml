@@ -8,7 +8,7 @@
 
     <ImageView android:id="@+id/auth_logo" android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:src="@drawable/bat_logo"
+        android:src="@drawable/logo"
         android:layout_gravity="center"
         android:layout_above="@+id/loginText"
         android:layout_alignEnd="@+id/passwordText" />

@@ -2,6 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.epsi.batmapp.activity.ListAlert">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item
+        android:id="@+id/createAlert"
+        android:icon="@drawable/ic_bell_plus"
+        android:title="@string/menu_list_alert_item"
+        app:showAsAction="ifRoom"/>
 </menu>
