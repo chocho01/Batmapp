@@ -40,4 +40,11 @@ module.exports =
     AlertModel
     .findById(idAlert)
     .exec (err, alert)->
-      alert.receiver.push user._id
+      if(alert && user)
+        alert.receiver.push user._id
+        alert.save()
+      else if (!alert)
+        err = { msg : "Alert does not exist"}
+      else if (!user)
+        err = { msg : "User is not loggin"}
+      callback err, alert
