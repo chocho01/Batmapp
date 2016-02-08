@@ -1,20 +1,28 @@
 mongoose = require 'mongoose'
+geolib = require 'geolib'
 AlertModel = mongoose.model 'alert'
 
 module.exports =
 
-  getAll : (callback)->
+  getAll : (user, callback)->
     AlertModel
     .find()
     .sort({date : -1})
     .exec (err, data)->
+      data = data.map (alert)->
+        if(user && user.lastPosition)
+          alert = alert.toJSON()
+          alert.distance = geolib.getDistance(alert.geoPosition, user.lastPosition)
+          return alert
       callback(err, data)
 
 
-  createAlert : (form, callback)->
+  createAlert : (form, user, callback)->
     alert = new AlertModel
       date: new Date()
-      sender: form.sender
+      sender:
+        id: user._id
+        name: form.sender
       criticity: form.criticity
       type: form.type
       geoPosition:

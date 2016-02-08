@@ -19,7 +19,7 @@ module.exports = (app) ->
   @apiSuccess {Number}   alert.geoPosition.longitude   position of user
 ###
 router.get '/', (req, res, next) ->
-  AlertRepository.getAll (err, alerts)->
+  AlertRepository.getAll req.user, (err, alerts)->
     res.json(alerts)
 
 
@@ -35,10 +35,11 @@ router.get '/', (req, res, next) ->
   @apiSuccess {Number}   alert.geoPosition.longitude   position of user
 ###
 router.post '/', (req, res, next) ->
-  AlertRepository.createAlert req.body, (err, alert)->
+  AlertRepository.createAlert req.body, req.user, (err, alert)->
     if(err)
       res.status(400).json(err)
-    res.json(alert)
+    else
+      res.json(alert)
 
 ###
    @api {post} /alerts/command Request create an alert from vocal speech
@@ -57,10 +58,11 @@ router.post '/command', (req, res, next) ->
   @apiGroup Alerts
 ###
 router.post '/call-police/:alertID', (req, res, next) ->
-  AlertRepository.callPolice req.params.alertID, (err, alert)->
+  AlertRepository.callPolice req.params.alertID, req.user, (err, alert)->
     if(err)
       res.status(400).json(err)
-    res.json(alert)
+    else
+      res.json(alert)
 
 
 ###

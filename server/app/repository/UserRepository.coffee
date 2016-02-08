@@ -10,6 +10,14 @@ module.exports =
       .exec (err, data)->
         callback(err, data)
 
+  updatePosition : (position, user, callback)->
+      UserModel
+        .findById(user._id)
+        .exec (err, user)->
+          user.lastPosition = position
+          user.save()
+          callback(err, user)
+
 
   createUser : (form, callback)->
     user = new UserModel

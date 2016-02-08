@@ -8,8 +8,12 @@ AlertSchema = new Schema(
     type: Date
     required: true
   sender:
-    type: String
-    required: true
+    id :
+      type: String
+      required: true
+    name :
+      type: String
+      required: true
   criticity:
     type: Number
     required: true
