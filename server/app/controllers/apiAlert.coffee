@@ -53,7 +53,7 @@ router.post '/command', (req, res, next) ->
 
 
 ###
-  @api {put} /alerts/call-police/:alertID call the police for alert
+  @api {post} /alerts/call-police/:alertID call the police for alert
   @apiGroup Alerts
 ###
 router.post '/call-police/:alertID', (req, res, next) ->

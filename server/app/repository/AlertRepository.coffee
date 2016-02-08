@@ -41,11 +41,11 @@ module.exports =
     .findById(idAlert)
     .exec (err, alert)->
       if(alert && user)
-        if(alert.receiver.indexOf(user._id)!= -1)
+        if(alert.receiver.indexOf(user._id)== -1)
           alert.receiver.push user._id
           alert.save()
         else
-          err = { msg : "Déja en chemin"}
+          err = { msg : "Vous êtes déja en chemin"}
       else if (!alert)
         err = { msg : "L'alerte n'existe pas"}
       else if (!user)
