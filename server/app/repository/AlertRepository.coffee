@@ -41,10 +41,29 @@ module.exports =
     .findById(idAlert)
     .exec (err, alert)->
       if(alert && user)
-        alert.receiver.push user._id
-        alert.save()
+        if(alert.receiver.indexOf(user._id)!= -1)
+          alert.receiver.push user._id
+          alert.save()
+        else
+          err = { msg : "Déja en chemin"}
       else if (!alert)
-        err = { msg : "Alert does not exist"}
+        err = { msg : "L'alerte n'existe pas"}
       else if (!user)
-        err = { msg : "User is not loggin"}
+        err = { msg : "Vous n'êtes pas connecté"}
+      callback err, alert
+
+  callPolice : (idAlert, user, callback)->
+    AlertModel
+    .findById(idAlert)
+    .exec (err, alert)->
+      if(alert && user)
+        if(!alert.police)
+          alert.police = true
+          alert.save()
+        else
+          err = { msg : "La police a déjà été contacté"}
+      else if (!alert)
+        err = { msg : "L'alerte n'existe pas"}
+      else if (!user)
+        err = { msg : "Vous n'êtes pas connecté"}
       callback err, alert

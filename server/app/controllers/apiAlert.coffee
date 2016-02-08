@@ -53,10 +53,10 @@ router.post '/command', (req, res, next) ->
 
 
 ###
-  @api {put} /alerts/callPolice/:alertID call the police for alert
+  @api {put} /alerts/call-police/:alertID call the police for alert
   @apiGroup Alerts
 ###
-router.post '/callPolice/:alertID', (req, res, next) ->
+router.post '/call-police/:alertID', (req, res, next) ->
   AlertRepository.callPolice req.params.alertID, (err, alert)->
     if(err)
       res.status(400).json(err)
@@ -64,7 +64,7 @@ router.post '/callPolice/:alertID', (req, res, next) ->
 
 
 ###
-  @api {put} /alerts/callPolice/:alertID call the police for alert
+  @api {post} /alerts/ongoing/:alertID call the police for alert
   @apiGroup Alerts
 ###
 router.post '/ongoing/:alertID', (req, res, next) ->
