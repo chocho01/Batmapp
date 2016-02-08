@@ -9,11 +9,11 @@ module.exports =
     .find()
     .sort({date : -1})
     .exec (err, data)->
-      data = data.map (alert)->
-        if(user && user.lastPosition)
-          alert = alert.toJSON()
-          alert.distance = geolib.getDistance(alert.geoPosition, user.lastPosition)
-          return alert
+      if(user && user.lastPosition)
+        data = data.map (alert)->
+            alert = alert.toJSON()
+            alert.distance = geolib.getDistance(alert.geoPosition, user.lastPosition)
+            return alert
       callback(err, data)
 
 
