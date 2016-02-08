@@ -2,6 +2,7 @@ package com.epsi.batmapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.speech.RecognizerIntent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.lang.reflect.Type;
 
@@ -33,11 +35,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ListAlert extends AppCompatActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks{
 
@@ -111,7 +109,7 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_create_alert, menu);
+        getMenuInflater().inflate(R.menu.menu_list_alert, menu);
         return true;
     }
 

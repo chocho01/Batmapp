@@ -46,7 +46,7 @@ router.post '/', (req, res, next) ->
    @apiParam {[String]} msg    List of speech command
    @apiSuccess {String} result of command
 ###
-router.post '/command', Authentification.isAuth, (req, res, next) ->
+router.post '/command', (req, res, next) ->
   command = req.body.msg
   AlertLauncher command, req.user, (result)->
     res.send({result: result})

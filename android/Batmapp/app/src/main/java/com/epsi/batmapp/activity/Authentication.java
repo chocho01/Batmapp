@@ -1,6 +1,5 @@
 package com.epsi.batmapp.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,7 +25,7 @@ import com.epsi.batmapp.model.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Authentication extends Activity {
+public class Authentication extends AppCompatActivity {
 
     private EditText loginText;
     private EditText pwdText;
@@ -39,7 +38,7 @@ public class Authentication extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bat_green)));
         pb = (ProgressBar) findViewById(R.id.progressBar);
         pb.setVisibility(View.INVISIBLE);
 

@@ -12,9 +12,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.speech.RecognizerIntent;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.NumberPicker;
@@ -23,19 +26,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.epsi.batmapp.R;
+import com.epsi.batmapp.manager.ApiManager;
 import com.epsi.batmapp.model.Alert;
-import com.epsi.batmapp.serializer.AlertSerializer;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -61,8 +56,11 @@ public class CreateAlert extends AppCompatActivity {
     public static final String EMPTY="";
     public static final String SPACE=" ";
 
-    private JSONObject jsonAlert;
     private int selectedCriticity = 1;
+    private String sender;
+
+    protected static final int REQUEST_OK = 1;
+
 
     private final LocationListener mLocationListener = new LocationListener() {
         @Override
@@ -105,7 +103,7 @@ public class CreateAlert extends AppCompatActivity {
         newAlert = new Alert();
 
         userDetails =  this.getSharedPreferences(getString(R.string.detail_user_session), Context.MODE_PRIVATE);
-        String sender = userDetails.getString(getString(R.string.f_name_user_session),EMPTY);
+        sender = userDetails.getString(getString(R.string.f_name_user_session), EMPTY);
         sender +=  SPACE + userDetails.getString(getString(R.string.l_name_user_session),EMPTY);
 
         newAlert.setSender(sender);
@@ -161,7 +159,6 @@ public class CreateAlert extends AppCompatActivity {
                     && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
-
             mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_REFRESH_TIME,
                     LOCATION_REFRESH_DISTANCE, mLocationListener);
         }
@@ -173,37 +170,8 @@ public class CreateAlert extends AppCompatActivity {
         newAlert.setCriticity(selectedCriticity);
         newAlert.setType(spinner.getSelectedItem().toString());
 
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Alert.class, new AlertSerializer());
-        gsonBuilder.setPrettyPrinting();
-        Gson gson = gsonBuilder.create();
-
-        String jsonString = gson.toJson(newAlert);
-        String url = getString(R.string.api_create_alert_url);
-
-        try {
-            jsonAlert = new JSONObject(jsonString);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.POST, url, jsonAlert, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        pb.setVisibility(View.INVISIBLE);
-                        Intent goToListAlert= new Intent(CreateAlert.this, ListAlert.class);
-                        startActivity(goToListAlert);
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        pb.setVisibility(View.INVISIBLE);
-                        displayAlertMessage(getString(R.string.error_registration_title),
-                                getString(R.string.error_registration_server));
-                    }
-                });
-        Volley.newRequestQueue(this).add(jsObjRequest);
+        ApiManager manager = new ApiManager(this);
+        manager.createAlertAPI(newAlert);
     }
 
     public void displayAlertMessage(String title, String message){
@@ -212,9 +180,57 @@ public class CreateAlert extends AppCompatActivity {
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {}
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_create_alert, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (item.getItemId()) {
+            case R.id.createAlert:
+                Intent goToCreateAlert = new Intent(this, CreateAlert.class);
+                startActivity(goToCreateAlert);
+                break;
+            case R.id.speech_recorder_button:
+                launchSpeechRecognition();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void launchSpeechRecognition(){
+        Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "fr-FR");
+        try {
+            startActivityForResult(i,REQUEST_OK);
+        } catch (Exception e) {
+            Toast.makeText(this, getString(R.string.alert_vocal_receiver_error), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==REQUEST_OK  && resultCode==RESULT_OK) {
+            ArrayList<String> thingsYouSaid = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            //Alert autoAlert = new Alert(sender,thingsYouSaid.get(0));
+            ApiManager manager = new ApiManager(this);
+            manager.createVocalAlertAPI(thingsYouSaid);
+        }
     }
 }

@@ -26,6 +26,18 @@ public class Alert implements Parcelable {
     public Alert() {
     }
 
+    public Alert(String sender, String type) {
+        this.date = new Date();
+        this.type = type;
+        this.sender = sender;
+        this.coord = new LatLng(45,5);
+        this.criticity = 3;
+        this.receiver = new int[]{};
+        this.police = false;
+        this.samu = false;
+        this.solved = false;
+    }
+
     protected Alert(Parcel in) {
         date = (java.util.Date) in.readSerializable();
         sender = in.readString();
