@@ -21,7 +21,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.NumberPicker;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,8 +29,6 @@ import com.epsi.batmapp.R;
 import com.epsi.batmapp.manager.ApiManager;
 import com.epsi.batmapp.model.Alert;
 import com.google.android.gms.maps.model.LatLng;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,43 +47,35 @@ public class CreateAlert extends AppCompatActivity {
 
     private NumberPicker picker;
     private Spinner spinner;
-    private ProgressBar pb;
 
     private SharedPreferences userDetails;
     public static final String EMPTY="";
     public static final String SPACE=" ";
 
     private int selectedCriticity = 1;
+    private LatLng lastCoordsKnown;
     private String sender;
 
     protected static final int REQUEST_OK = 1;
-
 
     private final LocationListener mLocationListener = new LocationListener() {
         @Override
         public void onLocationChanged(final Location location) {
             //On met à jour les coordonnées de l'alert si elles changent
-            LatLng coords = new LatLng(location.getLatitude(),location.getLongitude());
-            newAlert.setCoord(coords);
-            pb.setVisibility(View.INVISIBLE);
+            lastCoordsKnown = new LatLng(location.getLatitude(),location.getLongitude());
             Toast.makeText( getBaseContext(), getString(R.string.maj_coords), Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onStatusChanged(String s, int i, Bundle bundle) {
-            System.out.println("onStatusChanged");
         }
 
         @Override
         public void onProviderEnabled(String s) {
-            System.out.println("onProviderEnabled");
-
         }
 
         @Override
         public void onProviderDisabled(String s) {
-            System.out.println("onProviderDisabled");
-
         }
     };
 
@@ -97,16 +86,13 @@ public class CreateAlert extends AppCompatActivity {
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bat_green)));
 
-        pb = (ProgressBar) findViewById(R.id.progressBarCreateAlert);
-        pb.setVisibility(View.INVISIBLE);
-
-        newAlert = new Alert();
-
         userDetails =  this.getSharedPreferences(getString(R.string.detail_user_session), Context.MODE_PRIVATE);
         sender = userDetails.getString(getString(R.string.f_name_user_session), EMPTY);
         sender +=  SPACE + userDetails.getString(getString(R.string.l_name_user_session),EMPTY);
 
+        newAlert = new Alert();
         newAlert.setSender(sender);
+
         this.initiateLocationManager();
 
         spinner = (Spinner) findViewById(R.id.spinner_type);
@@ -153,7 +139,6 @@ public class CreateAlert extends AppCompatActivity {
         if ( !mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER ) ) {
             displayAlertMessage(getString(R.string.alert_gps_disabled_title),getString(R.string.alert_gps_disabled_message));
         }else{
-            pb.setVisibility(View.VISIBLE);
             Toast.makeText(this,getString(R.string.recup_coord),Toast.LENGTH_LONG).show();
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -161,17 +146,25 @@ public class CreateAlert extends AppCompatActivity {
             }
             mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_REFRESH_TIME,
                     LOCATION_REFRESH_DISTANCE, mLocationListener);
+            Location lastLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if(lastLocation != null){
+                lastCoordsKnown = new LatLng(lastLocation.getLatitude(),lastLocation.getLongitude());
+            }
         }
     }
 
     public void sendAlert(View view){
-        pb.setVisibility(View.VISIBLE);
         newAlert.setDate(new Date());
+        newAlert.setCoord(lastCoordsKnown);
         newAlert.setCriticity(selectedCriticity);
         newAlert.setType(spinner.getSelectedItem().toString());
 
-        ApiManager manager = new ApiManager(this);
-        manager.createAlertAPI(newAlert);
+        if(newAlert.getCoord()!= null){
+            ApiManager manager = new ApiManager(this);
+            manager.createAlertAPI(newAlert);
+        }else{
+            displayAlertMessage(getString(R.string.error_coords_title),getString(R.string.error_coords));
+        }
     }
 
     public void displayAlertMessage(String title, String message){
