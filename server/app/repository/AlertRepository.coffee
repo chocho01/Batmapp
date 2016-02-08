@@ -42,6 +42,7 @@ module.exports =
     .exec (err, alert)->
       if(alert && user)
         alert.receiver.push user._id
+        alert.save()
       else if (!alert)
         err = { msg : "Alert does not exist"}
       else if (!user)
