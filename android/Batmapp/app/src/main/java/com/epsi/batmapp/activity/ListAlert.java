@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.lang.reflect.Type;
@@ -44,12 +45,14 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
     private ListAlertAdapter adapter;
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    private ProgressBar pb;
     private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_alert);
+        pb = (ProgressBar) findViewById(R.id.progressbar_loading);
 
         //On récupère le navigation drawer
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -61,6 +64,7 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
 
         listView = (ListView) findViewById(R.id.AlertListView);
 
+        pb.setVisibility(View.VISIBLE);
         getAlerts();
 
     }
@@ -91,6 +95,7 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
      }
 
     public void displayData(){
+        pb.setVisibility(View.INVISIBLE);
         adapter = new ListAlertAdapter(this, listAlerts);
         listView.setAdapter(adapter);
 

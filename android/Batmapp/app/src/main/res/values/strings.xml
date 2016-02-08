@@ -43,6 +43,8 @@
     <string name="button_create_alert">Envoyer</string>
     <string name="recup_coord">Récupération de vos coordonnées...</string>
     <string name="maj_coords">Vos coordonnées ont été mises à jour</string>
+    <string name="error_coords">En attente de vos coordonées</string>
+    <string name="error_coords_title">Erreur de localisation</string>
     <string name="alert_gps_disabled_title">GPS désactivé</string>
     <string name="alert_gps_disabled_message">Veuillez activer votre GPS</string>
     <string name="alert_vocal_receiver_error">Erreur de reconaissance vocale</string>
