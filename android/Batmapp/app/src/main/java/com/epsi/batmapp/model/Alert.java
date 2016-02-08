@@ -18,7 +18,7 @@ public class Alert implements Parcelable {
     private Integer criticity;
     private String type;
     private LatLng coord;
-    private int[] receiver;
+    private String[] receiver;
     private Boolean police;
     private Boolean samu;
     private Boolean solved;
@@ -26,17 +26,6 @@ public class Alert implements Parcelable {
     public Alert() {
     }
 
-    public Alert(String sender, String type) {
-        this.date = new Date();
-        this.type = type;
-        this.sender = sender;
-        this.coord = new LatLng(45,5);
-        this.criticity = 3;
-        this.receiver = new int[]{};
-        this.police = false;
-        this.samu = false;
-        this.solved = false;
-    }
 
     protected Alert(Parcel in) {
         date = (java.util.Date) in.readSerializable();
@@ -44,7 +33,7 @@ public class Alert implements Parcelable {
         criticity = in.readInt();
         type = in.readString();
         coord = in.readParcelable(LatLng.class.getClassLoader());
-        receiver = in.createIntArray();
+        receiver = in.createStringArray();
         police = (Boolean) in.readValue(null);
         samu = (Boolean) in.readValue(null);
         solved = (Boolean) in.readValue(null);
@@ -102,11 +91,11 @@ public class Alert implements Parcelable {
         this.coord = coord;
     }
 
-    public int[] getReceiver() {
+    public String[] getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(int[] receiver) {
+    public void setReceiver(String[] receiver) {
         this.receiver = receiver;
     }
 
@@ -146,7 +135,7 @@ public class Alert implements Parcelable {
         parcel.writeInt(criticity);
         parcel.writeString(type);
         parcel.writeParcelable(coord,i);
-        parcel.writeIntArray(receiver);
+        parcel.writeStringArray(receiver);
         parcel.writeValue(police);
         parcel.writeValue(samu);
         parcel.writeValue(solved);
