@@ -64,6 +64,16 @@ router.post '/call-police/:alertID', (req, res, next) ->
     else
       res.json(alert)
 
+###
+@api {post} /alerts/call-police/:alertID call the police for alert
+@apiGroup Alerts
+###
+router.post '/call-samu/:alertID', (req, res, next) ->
+  AlertRepository.callSamu req.params.alertID, req.user, (err, alert)->
+    if(err)
+      res.status(400).json(err)
+    else
+      res.json(alert)
 
 ###
   @api {post} /alerts/ongoing/:alertID call the police for alert

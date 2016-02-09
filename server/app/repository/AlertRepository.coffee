@@ -75,3 +75,19 @@ module.exports =
       else if (!user)
         err = { msg : "Vous n'êtes pas connecté"}
       callback err, alert
+
+  callSamu : (idAlert, user, callback)->
+    AlertModel
+    .findById(idAlert)
+    .exec (err, alert)->
+      if(alert && user)
+        if(!alert.samu)
+          alert.samu = true
+          alert.save()
+        else
+          err = { msg : "Le samu a déjà été contacté"}
+      else if (!alert)
+        err = { msg : "L'alerte n'existe pas"}
+      else if (!user)
+        err = { msg : "Vous n'êtes pas connecté"}
+      callback err, alert
