@@ -65,7 +65,7 @@ router.post '/call-police/:alertID', (req, res, next) ->
       res.json(alert)
 
 ###
-@api {post} /alerts/call-police/:alertID call the police for alert
+@api {post} /alerts/call-samu/:alertID call the samu for alert
 @apiGroup Alerts
 ###
 router.post '/call-samu/:alertID', (req, res, next) ->

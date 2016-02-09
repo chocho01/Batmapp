@@ -21,6 +21,9 @@ UserSchema = new Schema(
       type: Number
     longitude:
       type: Number
+  profilPicture:
+    type: String
+    default : "default.jpg"
 
 )
 
