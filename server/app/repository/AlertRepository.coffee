@@ -6,7 +6,19 @@ module.exports =
 
   getAll : (user, callback)->
     AlertModel
-    .find()
+    .find({ $or: ["solved" : {$exists : false}, {"solved":false}]})
+    .sort({date : -1})
+    .exec (err, data)->
+      if(user && user.lastPosition)
+        data = data.map (alert)->
+            alert = alert.toJSON()
+            alert.distance = geolib.getDistance(alert.geoPosition, user.lastPosition)
+            return alert
+      callback(err, data)
+
+  getUserAlers : (userId, user, callback)->
+    AlertModel
+    .find({"sender.id" : userId})
     .sort({date : -1})
     .exec (err, data)->
       if(user && user.lastPosition)
@@ -23,6 +35,7 @@ module.exports =
       sender:
         id: user._id
         name: form.sender
+        profilPicture : user.profilPicture
       criticity: form.criticity
       type: form.type
       geoPosition:
@@ -35,7 +48,10 @@ module.exports =
   createSpeechAlert : (type, user)->
     alert = new AlertModel
       date: new Date()
-      sender: user.firstName+" "+user.lastName
+      sender:
+        id: user._id
+        name: user.firstName+" "+user.lastName
+        profilPicture : user.profilPicture
       criticity: type.criticity
       type: type.name
       geoPosition:
@@ -52,6 +68,8 @@ module.exports =
         if(alert.receiver.indexOf(user._id)== -1)
           alert.receiver.push user._id
           alert.save()
+          alert = alert.toJSON()
+          alert.distance = geolib.getDistance(alert.geoPosition, user.lastPosition)
         else
           err = { msg : "Vous êtes déja en chemin"}
       else if (!alert)
@@ -68,6 +86,8 @@ module.exports =
         if(!alert.police)
           alert.police = true
           alert.save()
+          alert = alert.toJSON()
+          alert.distance = geolib.getDistance(alert.geoPosition, user.lastPosition)
         else
           err = { msg : "La police a déjà été contacté"}
       else if (!alert)
@@ -84,6 +104,8 @@ module.exports =
         if(!alert.samu)
           alert.samu = true
           alert.save()
+          alert = alert.toJSON()
+          alert.distance = geolib.getDistance(alert.geoPosition, user.lastPosition)
         else
           err = { msg : "Le samu a déjà été contacté"}
       else if (!alert)

@@ -14,12 +14,13 @@ router.post '/', (req, res, next) ->
   passport.authenticate('local-login', (err, user) ->
     if err
       return next(err)
-    if !user
+    else if !user
       return res.status(401).send({"err": "Login or password is wrong"})
     req.login user, (err) ->
       if err
         return next(err)
-      return res.send(user)
+      else
+        return res.send(user)
   ) req, res, next
 
 
