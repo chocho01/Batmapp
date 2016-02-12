@@ -1,5 +1,6 @@
 package com.epsi.batmapp.model;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -15,6 +16,7 @@ public class Alert implements Parcelable {
     private String id;
     private Date date;
     private String sender;
+    private Bitmap pictureSender;
     private Integer criticity;
     private Double distance;
     private String type;
@@ -31,6 +33,7 @@ public class Alert implements Parcelable {
         id = in.readString();
         date = (java.util.Date) in.readSerializable();
         sender = in.readString();
+        pictureSender = Bitmap.CREATOR.createFromParcel(in);
         criticity = in.readInt();
         distance = in.readDouble();
         type = in.readString();
@@ -141,6 +144,14 @@ public class Alert implements Parcelable {
         this.solved = solved;
     }
 
+    public Bitmap getPictureSender() {
+        return pictureSender;
+    }
+
+    public void setPictureSender(Bitmap pictureSender) {
+        this.pictureSender = pictureSender;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -151,6 +162,7 @@ public class Alert implements Parcelable {
         parcel.writeString(id);
         parcel.writeSerializable(date);
         parcel.writeString(sender);
+        parcel.writeParcelable(pictureSender, i);
         parcel.writeInt(criticity);
         parcel.writeDouble(distance);
         parcel.writeString(type);

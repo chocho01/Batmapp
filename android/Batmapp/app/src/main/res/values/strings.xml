@@ -19,6 +19,7 @@
     <string name="email_detail_user">email</string>
     <string name="f_name_user_session">fName</string>
     <string name="l_name_user_session">lName</string>
+    <string name="picture_user_session">picture</string>
 
     <!-- SharedPreference LastCoords -->
     <string name="last_coord_pref">lastCoords</string>
@@ -91,6 +92,8 @@
     <string name="title_stat">Statistique</string>
     <string name="title_history">Historique</string>
     <string name="title_deco">Déconnexion</string>
+
     <string name="user_picture_description">Image de profil du sender</string>
+    <string name="title_activity_detail_user">Profile</string>
 
 </resources>

@@ -1,7 +1,6 @@
 package com.epsi.batmapp.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +47,7 @@ public class ListAlertAdapter extends ArrayAdapter<Alert> {
         TextView distanceText = (TextView) rowView.findViewById(R.id.distanceText);
         ImageView policeView = (ImageView) rowView.findViewById(R.id.alertPoliceIc);
         ImageView samuView = (ImageView) rowView.findViewById(R.id.alertSamuIc);
+        ImageView profilePicture = (ImageView) rowView.findViewById(R.id.profilePicture);
 
         typeText.setText(itemsArrayList.get(position).getType().toUpperCase());
         senderText.setText(itemsArrayList.get(position).getSender() +SPACE+ context.getString(R.string.list_alert_sender_view));
@@ -62,6 +62,10 @@ public class ListAlertAdapter extends ArrayAdapter<Alert> {
 
         if(!itemsArrayList.get(position).getSamu()){
             samuView.setVisibility(View.INVISIBLE);
+        }
+
+        if(itemsArrayList.get(position).getPictureSender()!=null){
+            profilePicture.setImageBitmap(itemsArrayList.get(position).getPictureSender());
         }
 
 

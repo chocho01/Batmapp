@@ -1,5 +1,6 @@
 package com.epsi.batmapp.serializer;
 
+import com.epsi.batmapp.helper.ImageDownloader;
 import com.epsi.batmapp.model.Alert;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.JsonArray;
@@ -16,6 +17,7 @@ import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -37,27 +39,18 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
     private static String POLICE ="police";
     private static String SAMU ="samu";
     private static String SOLVED ="solved";
+    private static String PICTURE = "profilPicture";
+    private static String IMAGE_BASE_URL = "http://batmapp.martin-choraine.fr/img/profil/";
 
     @Override
     public JsonElement serialize(Alert alert, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonAlert = new JsonObject();
-//      jsonAlert.add(ID,new JsonPrimitive(alert.getId()));
-//      jsonAlert.add(DATE, new JsonPrimitive(alert.getDate().toString()));
         jsonAlert.add(SENDER, new JsonPrimitive(alert.getSender()));
         jsonAlert.add(CRITICITY, new JsonPrimitive(alert.getCriticity()));
         jsonAlert.add(TYPE, new JsonPrimitive(alert.getType()));
         jsonAlert.add(LAT, new JsonPrimitive(alert.getCoord().latitude));
         jsonAlert.add(LNT, new JsonPrimitive(alert.getCoord().longitude));
 
-//        JsonArray receivers = new JsonArray();
-//        int[] idReceiver = alert.getReceiver();
-//        for(int i :  idReceiver){
-//            receivers.add(new JsonPrimitive(i));
-//        }
-//        jsonAlert.add(RECEIVER,receivers);
-//        jsonAlert.add(POLICE,new JsonPrimitive(alert.getPolice()));
-//        jsonAlert.add(SAMU,new JsonPrimitive(alert.getSamu()));
-//        jsonAlert.add(SOLVED, new JsonPrimitive(alert.isSolved()));
         return jsonAlert;
     }
 
@@ -80,6 +73,19 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
 
         if(jsonAlert.get(SENDER) instanceof JsonObject){
             alert.setSender(jsonAlert.get(SENDER).getAsJsonObject().get(NAME).getAsString());
+            String pictureName = jsonAlert.get(SENDER).getAsJsonObject().get(PICTURE).getAsString();
+
+            ImageDownloader downloader =  new ImageDownloader();
+            downloader.execute(IMAGE_BASE_URL+pictureName);
+
+            try {
+                alert.setPictureSender(downloader.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+
         }else {
             alert.setSender(jsonAlert.get(SENDER).getAsString());
         }
