@@ -14,6 +14,9 @@ AlertSchema = new Schema(
     name :
       type: String
       required: true
+    profilPicture:
+      type: String
+      default : "default.jpg"
   criticity:
     type: Number
     required: true
@@ -31,10 +34,13 @@ AlertSchema = new Schema(
     type: Array
   police:
     type: Boolean
+    default : false
   samu:
     type: Boolean
+    default : false
   solved:
     type: Boolean
+    default : false
 )
 
 mongoose.model 'alert', AlertSchema

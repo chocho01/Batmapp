@@ -18,6 +18,14 @@ module.exports =
           user.save()
           callback(err, user)
 
+  updateImage : (user, profilImg, callback)->
+    UserModel
+      .findById(user._id)
+      .exec (err, user)->
+        user.profilPicture = profilImg
+        user.save()
+        callback(err, user)
+
 
   createUser : (form, callback)->
     user = new UserModel

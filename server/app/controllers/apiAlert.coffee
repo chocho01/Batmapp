@@ -23,6 +23,11 @@ router.get '/', (req, res, next) ->
     res.json(alerts)
 
 
+router.get '/user/:id', (req, res, next) ->
+  AlertRepository.getUserAlers req.params.id, req.user, (err, alerts)->
+    res.json(alerts)
+
+
 ###
   @api {post} /alerts/ Request create an alert
   @apiGroup Alerts
