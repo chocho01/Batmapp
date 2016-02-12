@@ -1,19 +1,13 @@
 package com.epsi.batmapp.activity;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.speech.RecognizerIntent;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,19 +21,14 @@ import android.widget.Toast;
 
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.manager.ApiManager;
+import com.epsi.batmapp.manager.GeoManager;
 import com.epsi.batmapp.model.Alert;
-import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
 public class CreateAlert extends AppCompatActivity {
-
-    private LocationManager mLocationManager;
-    private static final Long MINUTE = Long.valueOf(1);
-    private static final Long LOCATION_REFRESH_TIME = 1000 * 60 * MINUTE;
-    private static final Float LOCATION_REFRESH_DISTANCE = 10f;
 
     private ArrayList<String> lst;
     private Alert newAlert;
@@ -50,7 +39,6 @@ public class CreateAlert extends AppCompatActivity {
     private SharedPreferences userDetails;
 
     private int selectedCriticity = 1;
-    private LatLng lastCoordsKnown;
     private String sender;
     private ApiManager manager;
 
@@ -58,25 +46,6 @@ public class CreateAlert extends AppCompatActivity {
     private static final String SPACE=" ";
     protected static final int REQUEST_OK = 1;
 
-    private final LocationListener mLocationListener = new LocationListener() {
-        @Override
-        public void onLocationChanged(final Location location) {
-            lastCoordsKnown = new LatLng(location.getLatitude(),location.getLongitude());
-            manager.updateUserPosition(lastCoordsKnown);
-        }
-
-        @Override
-        public void onStatusChanged(String s, int i, Bundle bundle) {
-        }
-
-        @Override
-        public void onProviderEnabled(String s) {
-        }
-
-        @Override
-        public void onProviderDisabled(String s) {
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +61,6 @@ public class CreateAlert extends AppCompatActivity {
 
         newAlert = new Alert();
         newAlert.setSender(sender);
-
-        this.initiateLocationManager();
 
         spinner = (Spinner) findViewById(R.id.spinner_type);
 
@@ -134,27 +101,10 @@ public class CreateAlert extends AppCompatActivity {
 
     }
 
-    public void initiateLocationManager(){
-        mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        if ( !mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER ) ) {
-            displayAlertMessage(getString(R.string.alert_gps_disabled_title),getString(R.string.alert_gps_disabled_message));
-        }else{
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                    && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
-            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_REFRESH_TIME,
-                    LOCATION_REFRESH_DISTANCE, mLocationListener);
-            Location lastLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if(lastLocation != null){
-                lastCoordsKnown = new LatLng(lastLocation.getLatitude(),lastLocation.getLongitude());
-            }
-        }
-    }
-
     public void sendAlert(View view){
+        GeoManager geoManager = GeoManager.getInstance(this);
         newAlert.setDate(new Date());
-        newAlert.setCoord(lastCoordsKnown);
+        newAlert.setCoord(geoManager.getLastCoordsKnownFromPreferences());
         newAlert.setCriticity(selectedCriticity);
         newAlert.setType(spinner.getSelectedItem().toString());
 

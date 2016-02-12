@@ -20,6 +20,11 @@
     <string name="f_name_user_session">fName</string>
     <string name="l_name_user_session">lName</string>
 
+    <!-- SharedPreference LastCoords -->
+    <string name="last_coord_pref">lastCoords</string>
+    <string name="last_coord_lat">lastLatitude</string>
+    <string name="last_coord_lon">lastLontitude</string>
+
     <!-- Ressources Authentication-->
     <string name="title_activity_authentication">Authentification</string>
     <string name="connexion">Connexion</string>
