@@ -25,6 +25,9 @@ import com.epsi.batmapp.model.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.CookieHandler;
+import java.net.CookieManager;
+
 public class Authentication extends AppCompatActivity {
 
     private EditText loginText;
@@ -131,6 +134,8 @@ public class Authentication extends AppCompatActivity {
                                   getString(R.string.error_authentication_401));
                       }
                   });
+          CookieManager manager = new CookieManager();
+          CookieHandler.setDefault(manager);
           Volley.newRequestQueue(this).add(jsObjRequest);
       }
   }

@@ -12,10 +12,11 @@ import java.util.Date;
  * Created by arnaud on 20/01/16.
  */
 public class Alert implements Parcelable {
-
+    private String id;
     private Date date;
     private String sender;
     private Integer criticity;
+    private Double distance;
     private String type;
     private LatLng coord;
     private String[] receiver;
@@ -26,11 +27,12 @@ public class Alert implements Parcelable {
     public Alert() {
     }
 
-
     protected Alert(Parcel in) {
+        id = in.readString();
         date = (java.util.Date) in.readSerializable();
         sender = in.readString();
         criticity = in.readInt();
+        distance = in.readDouble();
         type = in.readString();
         coord = in.readParcelable(LatLng.class.getClassLoader());
         receiver = in.createStringArray();
@@ -50,6 +52,14 @@ public class Alert implements Parcelable {
             return new Alert[size];
         }
     };
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Date getDate() {
         return date;
@@ -73,6 +83,14 @@ public class Alert implements Parcelable {
 
     public void setCriticity(Integer criticity) {
         this.criticity = criticity;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
     }
 
     public String getType() {
@@ -130,11 +148,13 @@ public class Alert implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
         parcel.writeSerializable(date);
         parcel.writeString(sender);
         parcel.writeInt(criticity);
+        parcel.writeDouble(distance);
         parcel.writeString(type);
-        parcel.writeParcelable(coord,i);
+        parcel.writeParcelable(coord, i);
         parcel.writeStringArray(receiver);
         parcel.writeValue(police);
         parcel.writeValue(samu);

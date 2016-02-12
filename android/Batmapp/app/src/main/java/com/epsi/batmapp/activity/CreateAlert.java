@@ -47,23 +47,22 @@ public class CreateAlert extends AppCompatActivity {
 
     private NumberPicker picker;
     private Spinner spinner;
-
     private SharedPreferences userDetails;
-    public static final String EMPTY="";
-    public static final String SPACE=" ";
 
     private int selectedCriticity = 1;
     private LatLng lastCoordsKnown;
     private String sender;
+    private ApiManager manager;
 
+    private static final String EMPTY="";
+    private static final String SPACE=" ";
     protected static final int REQUEST_OK = 1;
 
     private final LocationListener mLocationListener = new LocationListener() {
         @Override
         public void onLocationChanged(final Location location) {
-            //On met à jour les coordonnées de l'alert si elles changent
             lastCoordsKnown = new LatLng(location.getLatitude(),location.getLongitude());
-            Toast.makeText( getBaseContext(), getString(R.string.maj_coords), Toast.LENGTH_SHORT).show();
+            manager.updateUserPosition(lastCoordsKnown);
         }
 
         @Override
@@ -86,6 +85,7 @@ public class CreateAlert extends AppCompatActivity {
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bat_green)));
 
+        manager =  new ApiManager(this);
         userDetails =  this.getSharedPreferences(getString(R.string.detail_user_session), Context.MODE_PRIVATE);
         sender = userDetails.getString(getString(R.string.f_name_user_session), EMPTY);
         sender +=  SPACE + userDetails.getString(getString(R.string.l_name_user_session),EMPTY);
@@ -139,7 +139,6 @@ public class CreateAlert extends AppCompatActivity {
         if ( !mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER ) ) {
             displayAlertMessage(getString(R.string.alert_gps_disabled_title),getString(R.string.alert_gps_disabled_message));
         }else{
-            Toast.makeText(this,getString(R.string.recup_coord),Toast.LENGTH_LONG).show();
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
@@ -160,7 +159,6 @@ public class CreateAlert extends AppCompatActivity {
         newAlert.setType(spinner.getSelectedItem().toString());
 
         if(newAlert.getCoord()!= null){
-            ApiManager manager = new ApiManager(this);
             manager.createAlertAPI(newAlert);
         }else{
             displayAlertMessage(getString(R.string.error_coords_title),getString(R.string.error_coords));
@@ -221,8 +219,6 @@ public class CreateAlert extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==REQUEST_OK  && resultCode==RESULT_OK) {
             ArrayList<String> thingsYouSaid = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            //Alert autoAlert = new Alert(sender,thingsYouSaid.get(0));
-            ApiManager manager = new ApiManager(this);
             manager.createVocalAlertAPI(thingsYouSaid);
         }
     }

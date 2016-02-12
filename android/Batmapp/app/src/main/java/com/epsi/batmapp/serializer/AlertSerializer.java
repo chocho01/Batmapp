@@ -23,9 +23,12 @@ import java.util.Date;
  */
 public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<Alert> {
 
+    private static String ID = "_id";
     private static String DATE ="date";
     private static String SENDER ="sender";
+    private static String NAME ="name";
     private static String CRITICITY ="criticity";
+    private static String DISTANCE = "distance";
     private static String TYPE ="type";
     private static String GEO ="geoPosition";
     private static String LAT ="latitude";
@@ -35,11 +38,11 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
     private static String SAMU ="samu";
     private static String SOLVED ="solved";
 
-
     @Override
     public JsonElement serialize(Alert alert, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonAlert = new JsonObject();
-//        jsonAlert.add(DATE, new JsonPrimitive(alert.getDate().toString()));
+//      jsonAlert.add(ID,new JsonPrimitive(alert.getId()));
+//      jsonAlert.add(DATE, new JsonPrimitive(alert.getDate().toString()));
         jsonAlert.add(SENDER, new JsonPrimitive(alert.getSender()));
         jsonAlert.add(CRITICITY, new JsonPrimitive(alert.getCriticity()));
         jsonAlert.add(TYPE, new JsonPrimitive(alert.getType()));
@@ -63,6 +66,8 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
         Alert alert = new Alert();
         JsonObject jsonAlert = json.getAsJsonObject();
 
+        alert.setId(jsonAlert.get(ID).getAsString());
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         Date dateAlert = new Date();
         String jsonDate = jsonAlert.get(DATE).getAsString();
@@ -73,9 +78,18 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
         }
         alert.setDate(dateAlert);
 
-        alert.setSender(jsonAlert.get(SENDER).getAsString());
+        if(jsonAlert.get(SENDER) instanceof JsonObject){
+            alert.setSender(jsonAlert.get(SENDER).getAsJsonObject().get(NAME).getAsString());
+        }else {
+            alert.setSender(jsonAlert.get(SENDER).getAsString());
+        }
+
         alert.setCriticity(jsonAlert.get(CRITICITY).getAsInt());
         alert.setType(jsonAlert.get(TYPE).getAsString());
+
+        if(null != jsonAlert.get(DISTANCE)){
+            alert.setDistance(jsonAlert.get(DISTANCE).getAsDouble()/1000);
+        }
 
         JsonObject geo = jsonAlert.get(GEO).getAsJsonObject();
         alert.setCoord(new LatLng(geo.get(LAT).getAsDouble(),geo.get(LNT).getAsDouble()));
@@ -86,9 +100,22 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
             receivers[i]=idReceivers.get(i).getAsString();
         }
         alert.setReceiver(receivers);
-//        alert.setPolice(jsonAlert.get(POLICE).getAsBoolean());
-//        alert.setSamu(jsonAlert.get(SAMU).getAsBoolean());
-//        alert.setSolved(jsonAlert.get(SOLVED).getAsBoolean());
+
+        if(null != jsonAlert.get(POLICE))
+            alert.setPolice(jsonAlert.get(POLICE).getAsBoolean());
+        else
+            alert.setPolice(false);
+
+        if(null != jsonAlert.get(SAMU))
+            alert.setSamu(jsonAlert.get(SAMU).getAsBoolean());
+        else
+            alert.setSamu(false);
+
+        if(null != jsonAlert.get(SOLVED))
+            alert.setSolved(jsonAlert.get(SOLVED).getAsBoolean());
+        else
+            alert.setSolved(false);
+
         return alert;
     }
 }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.model.Alert;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -36,16 +37,33 @@ public class ListAlertAdapter extends ArrayAdapter<Alert> {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        DecimalFormat f = new DecimalFormat();
+        f.setMaximumFractionDigits(0);
 
         View rowView = inflater.inflate( R.layout.row_alert_list, parent, false);
 
         TextView typeText = (TextView) rowView.findViewById(R.id.TypeAlertText);
         TextView senderText = (TextView) rowView.findViewById(R.id.SenderText);
         TextView receiverText = (TextView) rowView.findViewById(R.id.ReceiverText);
+        TextView distanceText = (TextView) rowView.findViewById(R.id.distanceText);
+        ImageView policeView = (ImageView) rowView.findViewById(R.id.alertPoliceIc);
+        ImageView samuView = (ImageView) rowView.findViewById(R.id.alertSamuIc);
 
         typeText.setText(itemsArrayList.get(position).getType().toUpperCase());
         senderText.setText(itemsArrayList.get(position).getSender() +SPACE+ context.getString(R.string.list_alert_sender_view));
         receiverText.setText(itemsArrayList.get(position).getReceiver().length +SPACE+ context.getString(R.string.list_alert_receiver_view));
+        if(itemsArrayList.get(position).getDistance()!= null){
+            distanceText.setText(f.format(itemsArrayList.get(position).getDistance())+SPACE+context.getString(R.string.km));
+        }
+
+        if(!itemsArrayList.get(position).getPolice()){
+            policeView.setVisibility(View.INVISIBLE);
+        }
+
+        if(!itemsArrayList.get(position).getSamu()){
+            samuView.setVisibility(View.INVISIBLE);
+        }
+
 
 //        switch (itemsArrayList.get(position).getCriticity()){
 //            case 1:

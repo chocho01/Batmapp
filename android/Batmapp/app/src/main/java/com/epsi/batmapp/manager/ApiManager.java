@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.view.View;
 
 import com.android.volley.Request;
 
@@ -16,9 +15,13 @@ import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.epsi.batmapp.R;
+import com.epsi.batmapp.activity.Authentication;
 import com.epsi.batmapp.activity.ListAlert;
 import com.epsi.batmapp.model.Alert;
+import com.epsi.batmapp.model.User;
 import com.epsi.batmapp.serializer.AlertSerializer;
+import com.epsi.batmapp.serializer.UserSerializer;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -86,7 +89,7 @@ public class ApiManager {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.printf("La reponse: "+response);
+                        System.out.printf("La reponse: " + response);
                     }
                 },
                 new Response.ErrorListener() {
@@ -95,7 +98,44 @@ public class ApiManager {
                         error.printStackTrace();
                     }
                 });
+
         Volley.newRequestQueue(context).add(stringRequest);
+    }
+
+    public void RegistrationAPI (User user){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(User.class, new UserSerializer());
+        gsonBuilder.setPrettyPrinting();
+        Gson gson = gsonBuilder.create();
+
+        String jsonString = gson.toJson(user);
+        String url = context.getString(R.string.api_user_url);
+
+        JSONObject jsonUser = null;
+
+        try {
+            jsonUser = new JSONObject(jsonString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.POST, url, jsonUser, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        Intent goToListAlert= new Intent(context, Authentication.class);
+                        context.startActivity(goToListAlert);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        displayAlertMessage(context.getString(R.string.error_registration_title),
+                                context.getString(R.string.error_registration_server));
+                    }
+                });
+        Volley.newRequestQueue(context).add(jsObjRequest);
+
     }
 
     public boolean AuthenticationAPI (String email, String pwd){
@@ -136,6 +176,96 @@ public class ApiManager {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
+
+    public void updateUserPosition(LatLng lastCoordsKnown){
+        String url = context.getString(R.string.api_user_update_position);
+        JSONObject newPositionObject = new JSONObject();
+        try {
+            newPositionObject.put(context.getString(R.string.api_user_lat),lastCoordsKnown.latitude);
+            newPositionObject.put(context.getString(R.string.api_user_long),lastCoordsKnown.longitude);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.POST, url, newPositionObject, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+        Volley.newRequestQueue(context).add(jsObjRequest);
+    }
+
+    public void updateAlertOMW(String idAlert){
+        String url = context.getString(R.string.api_update_omw)+idAlert;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+        Volley.newRequestQueue(context).add(stringRequest);
+    }
+
+    public void updateAlert911(String idAlert){
+        String url = context.getString(R.string.api_update_911)+idAlert;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+        Volley.newRequestQueue(context).add(stringRequest);
+    }
+
+    public void updateAlertSAMU(String idAlert){
+        String url = context.getString(R.string.api_update_samu)+idAlert;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+        Volley.newRequestQueue(context).add(stringRequest);
+    }
+
+    public void updateAlertBullshit(String idAlert){
+        String url = context.getString(R.string.api_update_bullshit)+idAlert;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+        Volley.newRequestQueue(context).add(stringRequest);
+
+    }
+
+
 }
 
 
