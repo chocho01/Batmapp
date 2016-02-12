@@ -1,19 +1,13 @@
 package com.epsi.batmapp.activity;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.speech.RecognizerIntent;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,8 +21,8 @@ import android.widget.Toast;
 
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.manager.ApiManager;
+import com.epsi.batmapp.manager.GeoManager;
 import com.epsi.batmapp.model.Alert;
-import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,48 +30,22 @@ import java.util.Date;
 
 public class CreateAlert extends AppCompatActivity {
 
-    private LocationManager mLocationManager;
-    private static final Long MINUTE = Long.valueOf(1);
-    private static final Long LOCATION_REFRESH_TIME = 1000 * 60 * MINUTE;
-    private static final Float LOCATION_REFRESH_DISTANCE = 10f;
-
     private ArrayList<String> lst;
     private Alert newAlert;
     private boolean easterEgg;
 
     private NumberPicker picker;
     private Spinner spinner;
-
     private SharedPreferences userDetails;
-    public static final String EMPTY="";
-    public static final String SPACE=" ";
 
     private int selectedCriticity = 1;
-    private LatLng lastCoordsKnown;
     private String sender;
+    private ApiManager manager;
 
+    private static final String EMPTY="";
+    private static final String SPACE=" ";
     protected static final int REQUEST_OK = 1;
 
-    private final LocationListener mLocationListener = new LocationListener() {
-        @Override
-        public void onLocationChanged(final Location location) {
-            //On met à jour les coordonnées de l'alert si elles changent
-            lastCoordsKnown = new LatLng(location.getLatitude(),location.getLongitude());
-            Toast.makeText( getBaseContext(), getString(R.string.maj_coords), Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onStatusChanged(String s, int i, Bundle bundle) {
-        }
-
-        @Override
-        public void onProviderEnabled(String s) {
-        }
-
-        @Override
-        public void onProviderDisabled(String s) {
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,14 +54,13 @@ public class CreateAlert extends AppCompatActivity {
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bat_green)));
 
+        manager =  new ApiManager(this);
         userDetails =  this.getSharedPreferences(getString(R.string.detail_user_session), Context.MODE_PRIVATE);
         sender = userDetails.getString(getString(R.string.f_name_user_session), EMPTY);
         sender +=  SPACE + userDetails.getString(getString(R.string.l_name_user_session),EMPTY);
 
         newAlert = new Alert();
         newAlert.setSender(sender);
-
-        this.initiateLocationManager();
 
         spinner = (Spinner) findViewById(R.id.spinner_type);
 
@@ -134,33 +101,14 @@ public class CreateAlert extends AppCompatActivity {
 
     }
 
-    public void initiateLocationManager(){
-        mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        if ( !mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER ) ) {
-            displayAlertMessage(getString(R.string.alert_gps_disabled_title),getString(R.string.alert_gps_disabled_message));
-        }else{
-            Toast.makeText(this,getString(R.string.recup_coord),Toast.LENGTH_LONG).show();
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                    && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
-            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_REFRESH_TIME,
-                    LOCATION_REFRESH_DISTANCE, mLocationListener);
-            Location lastLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if(lastLocation != null){
-                lastCoordsKnown = new LatLng(lastLocation.getLatitude(),lastLocation.getLongitude());
-            }
-        }
-    }
-
     public void sendAlert(View view){
+        GeoManager geoManager = GeoManager.getInstance(this);
         newAlert.setDate(new Date());
-        newAlert.setCoord(lastCoordsKnown);
+        newAlert.setCoord(geoManager.getLastCoordsKnownFromPreferences());
         newAlert.setCriticity(selectedCriticity);
         newAlert.setType(spinner.getSelectedItem().toString());
 
         if(newAlert.getCoord()!= null){
-            ApiManager manager = new ApiManager(this);
             manager.createAlertAPI(newAlert);
         }else{
             displayAlertMessage(getString(R.string.error_coords_title),getString(R.string.error_coords));
@@ -221,8 +169,6 @@ public class CreateAlert extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==REQUEST_OK  && resultCode==RESULT_OK) {
             ArrayList<String> thingsYouSaid = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            //Alert autoAlert = new Alert(sender,thingsYouSaid.get(0));
-            ApiManager manager = new ApiManager(this);
             manager.createVocalAlertAPI(thingsYouSaid);
         }
     }

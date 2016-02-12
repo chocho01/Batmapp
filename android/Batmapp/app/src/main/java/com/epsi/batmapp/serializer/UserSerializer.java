@@ -25,6 +25,8 @@ public class UserSerializer implements JsonSerializer<User>, JsonDeserializer<Us
     private static String PWD="password";
     private static String F_NAME="firstName";
     private static String L_NAME="lastName";
+    private static String LAT ="latitude";
+    private static String LNT ="longitude";
 
     @Override
     public JsonElement serialize(User user, Type typeOfSrc, JsonSerializationContext context) {
@@ -33,6 +35,11 @@ public class UserSerializer implements JsonSerializer<User>, JsonDeserializer<Us
         jsonUser.add(PWD,new JsonPrimitive(user.getPassword()));
         jsonUser.add(F_NAME,new JsonPrimitive(user.getFirstName()));
         jsonUser.add(L_NAME,new JsonPrimitive(user.getLastName()));
+
+        if(user.getLastCoordKnown()!=null){
+            jsonUser.add(LAT, new JsonPrimitive(user.getLastCoordKnown().latitude));
+            jsonUser.add(LNT, new JsonPrimitive(user.getLastCoordKnown().longitude));
+        }
         return jsonUser;
     }
 

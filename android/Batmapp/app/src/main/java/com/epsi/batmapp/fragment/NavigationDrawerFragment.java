@@ -1,19 +1,19 @@
 package com.epsi.batmapp.fragment;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,9 +24,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.epsi.batmapp.R;
+import com.epsi.batmapp.activity.Authentication;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -62,6 +62,11 @@ public class NavigationDrawerFragment extends Fragment {
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+
+    private static final int PROFILE=0;
+    private static final int STATS=1;
+    private static final int HISTORY=2;
+    private static final int DECO=3;
 
     public NavigationDrawerFragment() {
     }
@@ -117,12 +122,28 @@ public class NavigationDrawerFragment extends Fragment {
                 getActionBar().getThemedContext(),
                 R.layout.text_left_menu_list,
                 new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                        getString(R.string.title_section4),
+                        getString(R.string.title_profile),
+                        getString(R.string.title_stat),
+                        getString(R.string.title_history),
+                        getString(R.string.title_deco),
                 }));
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                switch (position){
+                    case PROFILE:
+                        break;
+                    case STATS:
+                        break;
+                    case HISTORY:
+                        break;
+                    case DECO:
+                        Intent backToLoginView = new Intent(view.getContext(), Authentication.class);
+                        view.getContext().startActivity(backToLoginView);
+                        break;
+                }
+            }
+        });
         return view;
     }
 
@@ -238,7 +259,6 @@ public class NavigationDrawerFragment extends Fragment {
         // If the drawer is open, show the global app actions in the action bar. See also
         // showGlobalContextActionBar, which controls the top-left area of the action bar.
         if (mDrawerLayout != null && isDrawerOpen()) {
-            inflater.inflate(R.menu.menu_list_alert, menu);
             showGlobalContextActionBar();
         }
         super.onCreateOptionsMenu(menu, inflater);
@@ -260,7 +280,6 @@ public class NavigationDrawerFragment extends Fragment {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setTitle(R.string.app_name);
     }
 
     private ActionBar getActionBar() {
@@ -275,5 +294,9 @@ public class NavigationDrawerFragment extends Fragment {
          * Called when an item in the navigation drawer is selected.
          */
         void onNavigationDrawerItemSelected(int position);
+    }
+
+    public void closeDrawer(){
+        mDrawerLayout.closeDrawers();
     }
 }

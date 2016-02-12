@@ -1,5 +1,7 @@
 package com.epsi.batmapp.model;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by arnaud on 20/01/16.
  */
@@ -9,6 +11,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private LatLng lastCoordKnown;
 
     public User() {
     }
@@ -49,5 +52,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public LatLng getLastCoordKnown() {
+        return lastCoordKnown;
+    }
+
+    public void setLastCoordKnown(LatLng lastCoordKnown) {
+        this.lastCoordKnown = lastCoordKnown;
     }
 }

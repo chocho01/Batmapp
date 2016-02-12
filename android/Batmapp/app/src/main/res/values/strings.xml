@@ -20,6 +20,11 @@
     <string name="f_name_user_session">fName</string>
     <string name="l_name_user_session">lName</string>
 
+    <!-- SharedPreference LastCoords -->
+    <string name="last_coord_pref">lastCoords</string>
+    <string name="last_coord_lat">lastLatitude</string>
+    <string name="last_coord_lon">lastLontitude</string>
+
     <!-- Ressources Authentication-->
     <string name="title_activity_authentication">Authentification</string>
     <string name="connexion">Connexion</string>
@@ -31,11 +36,26 @@
     <!-- Ressources ListAlert-->
     <string name="title_activity_list_alert">Liste des alertes</string>
     <string name="list_alert_sender_view">appel au secour</string>
-    <string name="list_alert_receiver_view">sont en chemin(s)</string>
+    <string name="list_alert_receiver_view">personne(s) sont en chemin</string>
     <string name="title_activity_detail_alert">DetailAlert</string>
     <string name="alert_selected">AlertSelected</string>
     <string name="speech">Close navigation drawer</string>
+    <string name="km">Km</string>
 
+    <!-- Ressources DetailAlert-->
+    <string name="marker_text">a besoin d\'aide</string>
+    <string name="title_list_alert_action">Que vouluez vous faire ?</string>
+    <string-array name="list_action_alert">
+        <item>J\'arrive</item>
+        <item>Appeler la police</item>
+        <item>Appeler le samu</item>
+        <item>Fausse alerte</item>
+    </string-array>
+    <string name="error_action_alert_title">Déjà prévenu(e)</string>
+    <string name="error_action_alert_911">La police à déjà été prévenue</string>
+    <string name="error_action_alert_samu">Le samu à déjà été prévenu</string>
+    <string name="call_911_number">tel:177</string>
+    <string name="call_samu_number">tel:166</string>
 
     <!-- Ressource CreateAlert-->
     <string name="libelleSelectType">Séléctionner un type d\'alerte</string>
@@ -49,6 +69,15 @@
     <string name="alert_gps_disabled_message">Veuillez activer votre GPS</string>
     <string name="alert_vocal_receiver_error">Erreur de reconaissance vocale</string>
 
+    <string-array name="type_array">
+        <item>Attaque de zombie</item>
+        <item>Guerre nucléaire</item>
+        <item>Invasion aliens</item>
+        <item>Inondation planétaire</item>
+        <item>La mère à Martin débarque</item>
+        <item>Uranus l\'utérus</item>
+    </string-array>
+
     <!-- Menu item -->
     <string name="action_settings">Settings</string>
     <string name="title_activity_create_alert">Créer une alerte</string>
@@ -58,9 +87,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="title_section1">Modifier son profile</string>
-    <string name="title_section2">Statistique</string>
-    <string name="title_section3">Historique</string>
-    <string name="title_section4">Paramètres</string>
+    <string name="title_profile">Modifier son profile</string>
+    <string name="title_stat">Statistique</string>
+    <string name="title_history">Historique</string>
+    <string name="title_deco">Déconnexion</string>
+    <string name="user_picture_description">Image de profil du sender</string>
 
 </resources>

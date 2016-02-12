@@ -2,9 +2,7 @@ package com.epsi.batmapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.speech.RecognizerIntent;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import java.lang.reflect.Type;
 
@@ -65,8 +62,13 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
         listView = (ListView) findViewById(R.id.AlertListView);
 
         pb.setVisibility(View.VISIBLE);
-        getAlerts();
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.getAlerts();
     }
 
     public void getAlerts(){
@@ -144,13 +146,13 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.title_profile);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.title_stat);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_history);
                 break;
         }
     }
@@ -195,7 +197,7 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            //preventing default implementation previous to android.os.Build.VERSION_CODES.ECLAIR
+            mNavigationDrawerFragment.closeDrawer();
             return true;
         }
         return super.onKeyDown(keyCode, event);

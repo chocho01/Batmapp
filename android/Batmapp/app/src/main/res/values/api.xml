@@ -9,10 +9,13 @@
 
     <!--  User-->
     <string name="api_user_url">http://batmapp.martin-choraine.fr/api/users</string>
+    <string name="api_user_update_position">http://batmapp.martin-choraine.fr/api/users/update-position</string>
     <string name="api_user_email">email</string>
     <string name="api_user_password">password</string>
     <string name="api_user_fName">firstName</string>
     <string name="api_user_lName">lastName</string>
+    <string name="api_user_lat">latitude</string>
+    <string name="api_user_long">longitude</string>
 
     <!-- List Alerts-->
     <string name="api_listAlert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
@@ -20,6 +23,13 @@
     <!-- Create Alert-->
     <string name="api_create_alert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
     <string name="api_create_vocal_alert_url">http://batmapp.martin-choraine.fr/api/alerts/command</string>
+
+    <!-- Update Alert -->
+    <string name="api_update_omw">http://batmapp.martin-choraine.fr/api/alerts/ongoing/</string>
+    <string name="api_update_911">http://batmapp.martin-choraine.fr/api/alerts/call-police/</string>
+    <string name="api_update_samu">http://batmapp.martin-choraine.fr/api/alerts/call-samu/</string>
+    <string name="api_update_bullshit">http://batmapp.martin-choraine.fr/api/alerts/</string>
+
 
     <!-- Google Map Api Key-->
     <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyBSCu5-F78hCRr4Shivv2WaQk4orDsqXeU</string>

@@ -1,13 +1,12 @@
 package com.epsi.batmapp.activity;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Bundle;
 
 import com.epsi.batmapp.R;
+import com.epsi.batmapp.manager.GeoManager;
 
 public class Splashscreen extends Activity {
 
@@ -27,6 +26,9 @@ public class Splashscreen extends Activity {
                 Splashscreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
+
+        //On instancie le singleton GeoManager pour la géolocalisation de l'utilisateur
+        GeoManager.getInstance(this);
 
     }
 }
