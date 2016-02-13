@@ -11,10 +11,11 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageView"
-            android:src="@drawable/unknow"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/profilePicture" />
 
         <LinearLayout
             android:layout_width="wrap_content"

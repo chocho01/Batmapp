@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="@string/register"
         android:id="@+id/buttonRegister"
-        android:background="@color/bat_green"
+        android:background="@color/green_lite_1"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginTop="10dp"

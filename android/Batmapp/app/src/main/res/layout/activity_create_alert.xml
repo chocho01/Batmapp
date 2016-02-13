@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_create_alert"
         android:id="@+id/buttonCreateAlert"
-        android:background="@color/bat_green"
+        android:background="@color/green_lite_1"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:onClick="sendAlert"

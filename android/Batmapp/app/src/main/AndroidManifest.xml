@@ -19,6 +19,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -54,6 +55,11 @@
             android:name=".activity.CreateAlert"
             android:label="@string/title_activity_create_alert"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.DetailUser"
+            android:label="@string/title_activity_detail_user"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

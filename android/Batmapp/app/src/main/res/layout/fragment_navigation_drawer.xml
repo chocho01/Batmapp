@@ -8,15 +8,14 @@
     tools:context="com.epsi.batmapp.activity.ListAlert$PlaceholderFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="190dp"
         android:orientation="vertical"
-        android:background="@color/bat_green">
+        android:background="@color/green_lite_1">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/menuProfilePicture"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/unknow"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"/>
 

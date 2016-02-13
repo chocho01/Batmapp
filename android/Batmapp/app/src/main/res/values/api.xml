@@ -30,6 +30,8 @@
     <string name="api_update_samu">http://batmapp.martin-choraine.fr/api/alerts/call-samu/</string>
     <string name="api_update_bullshit">http://batmapp.martin-choraine.fr/api/alerts/</string>
 
+    <!-- Image Server Path-->
+    <string name="image_server_path">http://batmapp.martin-choraine.fr/img/profil/</string>
 
     <!-- Google Map Api Key-->
     <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyBSCu5-F78hCRr4Shivv2WaQk4orDsqXeU</string>

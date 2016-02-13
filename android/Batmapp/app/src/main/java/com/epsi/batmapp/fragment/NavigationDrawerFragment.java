@@ -1,6 +1,5 @@
 package com.epsi.batmapp.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +12,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,11 +20,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.activity.Authentication;
+import com.epsi.batmapp.activity.DetailUser;
+import com.epsi.batmapp.helper.ImageDownloader;
+import com.epsi.batmapp.model.Session;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -67,6 +71,7 @@ public class NavigationDrawerFragment extends Fragment {
     private static final int STATS=1;
     private static final int HISTORY=2;
     private static final int DECO=3;
+    private static final String SPACE =" ";
 
     public NavigationDrawerFragment() {
     }
@@ -101,15 +106,28 @@ public class NavigationDrawerFragment extends Fragment {
 
         TextView name = (TextView) view.findViewById(R.id.leftMenuUserName);
         TextView mail = (TextView) view.findViewById(R.id.leftMenuUserMail);
+        ImageView profilePicture = (ImageView) view.findViewById(R.id.menuProfilePicture);
 
-        SharedPreferences userDetails =  getActivity().getSharedPreferences(getResources().getString(R.string.detail_user_session), Context.MODE_PRIVATE);
 
-        String user = userDetails.getString(getString(R.string.f_name_user_session),"");
-        user +=  " " + userDetails.getString(getString(R.string.l_name_user_session),"");
-        String email = userDetails.getString(getString(R.string.email_detail_user), "");
+        String user = Session.getInstance(null).getUserConnected().getFirstName();
+        user +=  SPACE + Session.getInstance(null).getUserConnected().getLastName();
+        String email = Session.getInstance(null).getUserConnected().getEmail();
+        String imagePath = getString(R.string.image_server_path)+Session.getInstance(null).getUserConnected().getPicture();
 
         name.setText(user);
         mail.setText(email);
+
+        ImageDownloader downloader =  new ImageDownloader();
+        downloader.execute(imagePath);
+
+        try {
+            profilePicture.setImageBitmap(downloader.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
 
         ListView listView = (ListView)view.findViewById(R.id.mleftMenuListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -132,6 +150,8 @@ public class NavigationDrawerFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position){
                     case PROFILE:
+                        Intent goToLoginView = new Intent(view.getContext(), DetailUser.class);
+                        view.getContext().startActivity(goToLoginView);
                         break;
                     case STATS:
                         break;
@@ -168,7 +188,7 @@ public class NavigationDrawerFragment extends Fragment {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bat_green)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.green_lite_1)));
 
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the navigation drawer and the action bar app icon.

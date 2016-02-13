@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.epsi.batmapp.R;
+import com.epsi.batmapp.model.Session;
 import com.epsi.batmapp.model.User;
 
 import org.json.JSONException;
@@ -41,7 +42,7 @@ public class Authentication extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bat_green)));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.green_lite_1)));
         pb = (ProgressBar) findViewById(R.id.progressBar);
         pb.setVisibility(View.INVISIBLE);
 
@@ -109,12 +110,16 @@ public class Authentication extends AppCompatActivity {
                               userConnected.setEmail(response.getString("email"));
                               userConnected.setFirstName(response.getString("firstName"));
                               userConnected.setLastName(response.getString("lastName"));
+                              userConnected.setPicture(response.getString("profilPicture"));
+
+                              Session.getInstance(userConnected);
 
                               SharedPreferences.Editor editor = userDetails.edit();
                               editor.clear();
                               editor.putString(getString(R.string.email_detail_user), userConnected.getEmail());
                               editor.putString(getString(R.string.f_name_user_session), userConnected.getFirstName());
                               editor.putString(getString(R.string.l_name_user_session), userConnected.getLastName());
+                              editor.putString(getString(R.string.picture_user_session),userConnected.getPicture());
                               editor.commit();
 
                               pb.setVisibility(View.INVISIBLE);

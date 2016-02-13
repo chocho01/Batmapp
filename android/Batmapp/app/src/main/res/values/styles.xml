@@ -7,7 +7,7 @@
     </style>
 
     <style name="ActionBar.Solid.batmapp" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">@color/bat_green</item>
+        <item name="android:background">@color/green_lite_1</item>
     </style>
 
 </resources>
