@@ -26,6 +26,14 @@ module.exports =
         user.save()
         callback(err, user)
 
+  updateImage : (form, user, callback)->
+    UserModel
+      .findById(user._id)
+      .exec (err, user)->
+        user.token = form.token
+        user.save()
+        callback(err, user)
+
 
   createUser : (form, callback)->
     user = new UserModel

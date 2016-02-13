@@ -120,7 +120,7 @@ module.exports =
       .exec (err, alert)->
         if(alert && user)
           if alert.sender.id == user._id
-            alert.resolve = true
+            alert.solved = true
             alert.save()
           else
             err = { msg : "Vous n'êtes pas proprietaire de l'alert"}
