@@ -57,6 +57,7 @@ router.post '/update-position', Authentification.isAuth, (req, res, next) ->
 
 
 router.post '/upload', upload.single('file'), (req, res, next) ->
+  console.log(req.file)
   imageMagick(req.file.path)
     .resize('400', '300', '^')
     .gravity('Center')
