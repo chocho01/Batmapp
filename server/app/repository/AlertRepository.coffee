@@ -113,3 +113,26 @@ module.exports =
       else if (!user)
         err = { msg : "Vous n'êtes pas connecté"}
       callback err, alert
+
+  resolve : (idAlert, user, callback)->
+    AlertModel
+      .findById(idAlert)
+      .exec (err, alert)->
+        if(alert && user)
+          if alert.sender.id == user._id
+            alert.resolve = true
+            alert.save()
+          else
+            err = { msg : "Vous n'êtes pas proprietaire de l'alert"}
+        else
+          err = { msg : "L'alerte n'existe pas"}
+        callback err, alert
+
+  udpatePositionOfUserAlert : (form, user)->
+    AlertModel
+    .find({"sender.id" : user._id})
+    .exec (err, alerts)->
+      alerts.forEach (alert)->
+        alert.geoPosition.latitude = form.latitude
+        alert.geoPosition.longitude = form.longitude
+        alert.save()

@@ -6,7 +6,7 @@ module.exports = (app) ->
   app.use '/api/login', router
 
 ###
-  @api {get} /api/login Request to log the user
+  @api {get} /login Request to log the user
   @apiGroup Users
   @apiSuccess {Object} user User log-in
 ###

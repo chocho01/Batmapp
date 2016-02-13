@@ -1,6 +1,7 @@
 express = require 'express'
 router = express.Router()
 UserRepository = require '../repository/UserRepository.coffee'
+AlertRepository = require '../repository/AlertRepository.coffee'
 Authentification = require '../utils/Authentification.coffee'
 gm = require('gm')
 imageMagick = gm.subClass({ imageMagick: false })
@@ -42,7 +43,7 @@ router.post '/', (req, res, next) ->
 
 
 ###
-  @api {post} /update-position/ Update user geoposition
+  @api {post} /users/update-position/ Update user geoposition and his alerts
   @apiGroup Users
   @apiSuccess {Object} user User with position updated
   @apiParam {Number} latitude User geoPosition : Latitude
@@ -54,9 +55,10 @@ router.post '/update-position', Authentification.isAuth, (req, res, next) ->
       res.status(400).json()
     else
       res.json(user)
+      AlertRepository.udpatePositionOfUserAlert req.body, req.user
 
 ###
-  @api {post} /update-gcm-token/ Update user gcm token
+  @api {post} /users/update-gcm-token/ Update user gcm token
   @apiGroup Users
   @apiSuccess {Object} user User with position updated
   @apiParam {String} token GCM Token
@@ -69,12 +71,12 @@ router.post '/update-gcm-token', Authentification.isAuth, (req, res, next) ->
       res.json(user)
 
 ###
-  @api {post} /upload/ Update user image profil
+  @api {post} /users/upload/ Update user image profil
   @apiGroup Users
   @apiSuccess {Object} user User with image profil updated
   @apiParam {File} file  Image to use
 ###
-router.post '/upload', upload.single('file'), (req, res, next) ->
+router.post '/upload', Authentification.isAuth, upload.single('file'), (req, res, next) ->
   imageMagick(req.file.path)
     .resize('400', '300', '^')
     .gravity('Center')
