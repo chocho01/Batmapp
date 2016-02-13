@@ -55,8 +55,8 @@ module.exports =
       criticity: type.criticity
       type: type.name
       geoPosition:
-        latitude: 3.555
-        longitude: 12.5643
+        latitude: user.lastPosition.latitude
+        longitude:  user.lastPosition.longitude
 
     alert.save()
 
