@@ -55,8 +55,8 @@ module.exports =
       criticity: type.criticity
       type: type.name
       geoPosition:
-        latitude: 3.555
-        longitude: 12.5643
+        latitude: user.lastPosition.latitude
+        longitude:  user.lastPosition.longitude
 
     alert.save()
 
@@ -113,3 +113,26 @@ module.exports =
       else if (!user)
         err = { msg : "Vous n'êtes pas connecté"}
       callback err, alert
+
+  resolve : (idAlert, user, callback)->
+    AlertModel
+      .findById(idAlert)
+      .exec (err, alert)->
+        if(alert && user)
+          if alert.sender.id == user._id
+            alert.solved = true
+            alert.save()
+          else
+            err = { msg : "Vous n'êtes pas proprietaire de l'alert"}
+        else
+          err = { msg : "L'alerte n'existe pas"}
+        callback err, alert
+
+  udpatePositionOfUserAlert : (form, user)->
+    AlertModel
+    .find({"sender.id" : user._id})
+    .exec (err, alerts)->
+      alerts.forEach (alert)->
+        alert.geoPosition.latitude = form.latitude
+        alert.geoPosition.longitude = form.longitude
+        alert.save()

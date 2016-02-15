@@ -28,8 +28,9 @@ module.exports = (app, config) ->
   app.use(passport.session())
   app.use(flash())
 
-  app.use bodyParser.json()
+  app.use bodyParser.json({limit: '50mb'})
   app.use bodyParser.urlencoded(
+    limit: '50mb'
     extended: true
   )
   app.use cookieParser()
@@ -58,7 +59,7 @@ module.exports = (app, config) ->
 
   # development error handler
   # will print stacktrace
-  if app.get('env') == 'production'
+  if app.get('env') != 'test'
     app.use logger 'dev'
 
   if app.get('env') == 'development'

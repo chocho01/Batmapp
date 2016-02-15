@@ -1,6 +1,7 @@
 express = require 'express'
 router = express.Router()
 UserRepository = require '../repository/UserRepository.coffee'
+AlertRepository = require '../repository/AlertRepository.coffee'
 Authentification = require '../utils/Authentification.coffee'
 gm = require('gm')
 imageMagick = gm.subClass({ imageMagick: false })
@@ -42,11 +43,11 @@ router.post '/', (req, res, next) ->
 
 
 ###
-  @api {post} /update-position/ Request all Users informations
+  @api {post} /users/update-position/ Update user geoposition and his alerts
   @apiGroup Users
-  @apiSuccess {Object[]} users List of user
-  @apiSuccess {String}   users.email   Users email.
-
+  @apiSuccess {Object} user User with position updated
+  @apiParam {Number} latitude User geoPosition : Latitude
+  @apiParam {Number} longitude User geoPosition : Longitude
 ###
 router.post '/update-position', Authentification.isAuth, (req, res, next) ->
   UserRepository.updatePosition req.body, req.user, (err, user) ->
@@ -54,9 +55,28 @@ router.post '/update-position', Authentification.isAuth, (req, res, next) ->
       res.status(400).json()
     else
       res.json(user)
+      AlertRepository.udpatePositionOfUserAlert req.body, req.user
 
+###
+  @api {post} /users/update-gcm-token/ Update user gcm token
+  @apiGroup Users
+  @apiSuccess {Object} user User with position updated
+  @apiParam {String} token GCM Token
+###
+router.post '/update-gcm-token', Authentification.isAuth, (req, res, next) ->
+  UserRepository.updateGcmToken req.body, req.user, (err, user) ->
+    if err
+      res.status(400).json()
+    else
+      res.json(user)
 
-router.post '/upload', upload.single('file'), (req, res, next) ->
+###
+  @api {post} /users/upload/ Update user image profil
+  @apiGroup Users
+  @apiSuccess {Object} user User with image profil updated
+  @apiParam {File} file  Image to use
+###
+router.post '/upload', Authentification.isAuth, upload.single('file'), (req, res, next) ->
   imageMagick(req.file.path)
     .resize('400', '300', '^')
     .gravity('Center')

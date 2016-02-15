@@ -22,11 +22,15 @@ router.get '/', (req, res, next) ->
   AlertRepository.getAll req.user, (err, alerts)->
     res.json(alerts)
 
-
-router.get '/user/:id', (req, res, next) ->
+###
+  @api {get} /user/:id Request all alerts informations for a user
+  @apiGroup Alerts
+  @apiSuccess {Alert[]} alerts List of alerts
+  @apiParam {String} id  User id
+###
+router.get '/user/:id', Authentification.isAuth, (req, res, next) ->
   AlertRepository.getUserAlers req.params.id, req.user, (err, alerts)->
     res.json(alerts)
-
 
 ###
   @api {post} /alerts/ Request create an alert
@@ -39,7 +43,7 @@ router.get '/user/:id', (req, res, next) ->
   @apiSuccess {Number}   alert.geoPosition.latitude   position of user
   @apiSuccess {Number}   alert.geoPosition.longitude   position of user
 ###
-router.post '/', (req, res, next) ->
+router.post '/', Authentification.isAuth, (req, res, next) ->
   AlertRepository.createAlert req.body, req.user, (err, alert)->
     if(err)
       res.status(400).json(err)
@@ -52,7 +56,7 @@ router.post '/', (req, res, next) ->
    @apiParam {[String]} msg    List of speech command
    @apiSuccess {String} result of command
 ###
-router.post '/command', (req, res, next) ->
+router.post '/command', Authentification.isAuth, (req, res, next) ->
   command = req.body.msg
   AlertLauncher command, req.user, (result)->
     res.send({result: result})
@@ -62,7 +66,7 @@ router.post '/command', (req, res, next) ->
   @api {post} /alerts/call-police/:alertID call the police for alert
   @apiGroup Alerts
 ###
-router.post '/call-police/:alertID', (req, res, next) ->
+router.post '/call-police/:alertID', Authentification.isAuth, (req, res, next) ->
   AlertRepository.callPolice req.params.alertID, req.user, (err, alert)->
     if(err)
       res.status(400).json(err)
@@ -73,7 +77,7 @@ router.post '/call-police/:alertID', (req, res, next) ->
 @api {post} /alerts/call-samu/:alertID call the samu for alert
 @apiGroup Alerts
 ###
-router.post '/call-samu/:alertID', (req, res, next) ->
+router.post '/call-samu/:alertID', Authentification.isAuth, (req, res, next) ->
   AlertRepository.callSamu req.params.alertID, req.user, (err, alert)->
     if(err)
       res.status(400).json(err)
@@ -81,11 +85,22 @@ router.post '/call-samu/:alertID', (req, res, next) ->
       res.json(alert)
 
 ###
-  @api {post} /alerts/ongoing/:alertID call the police for alert
+  @api {post} /alerts/ongoing/:alertID set user going on alert
   @apiGroup Alerts
 ###
-router.post '/ongoing/:alertID', (req, res, next) ->
+router.post '/ongoing/:alertID', Authentification.isAuth, (req, res, next) ->
   AlertRepository.onGoing req.params.alertID, req.user, (err, alert)->
+    if(err)
+      res.status(400).json(err)
+    else
+      res.json(alert)
+
+###
+@api {post} /alerts/resolve/:alertID set the alert resolved
+@apiGroup Alerts
+###
+router.post '/resolve/:alertID', Authentification.isAuth, (req, res, next) ->
+  AlertRepository.resolve req.params.alertID, req.user, (err, alert)->
     if(err)
       res.status(400).json(err)
     else

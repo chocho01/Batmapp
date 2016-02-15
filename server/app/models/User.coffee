@@ -24,7 +24,8 @@ UserSchema = new Schema(
   profilPicture:
     type: String
     default : "default.jpg"
-
+  token:
+    type : String
 )
 
 mongoose.model 'user', UserSchema
