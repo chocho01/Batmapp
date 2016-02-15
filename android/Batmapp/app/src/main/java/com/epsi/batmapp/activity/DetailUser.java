@@ -31,18 +31,8 @@ public class DetailUser extends AppCompatActivity {
         setContentView(R.layout.activity_detail_user);
         session = Session.getInstance(null);
         img = (ImageView) findViewById(R.id.imageViewDetailUser);
-
-        ImageDownloader downloader =  new ImageDownloader();
-        downloader.execute(getString(R.string.image_server_path)+session.getUserConnected().getPicture());
-
-        try {
-            img.setImageBitmap(downloader.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-
+        new ImageDownloader(img).execute(getString(R.string.image_server_path)
+                +session.getUserConnected().getPicture());
     }
 
     public void openGallery(View view){

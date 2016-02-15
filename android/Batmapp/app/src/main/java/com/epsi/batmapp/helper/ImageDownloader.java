@@ -18,9 +18,10 @@ import java.io.InputStream;
  * Created by arnaud on 12/02/16.
  */
 public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
+    ImageView bmImage;
 
-    public ImageDownloader() {
-
+    public ImageDownloader(ImageView bmImage) {
+        this.bmImage = bmImage;
     }
 
     protected Bitmap doInBackground(String... urls) {
@@ -32,7 +33,11 @@ public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
         }
-        return getRoundedCornerBitmap(mIcon);
+        return mIcon;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        bmImage.setImageBitmap(getRoundedCornerBitmap(result));
     }
 
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) {

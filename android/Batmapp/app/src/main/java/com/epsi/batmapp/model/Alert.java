@@ -1,12 +1,10 @@
 package com.epsi.batmapp.model;
 
-import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -16,7 +14,7 @@ public class Alert implements Parcelable {
     private String id;
     private Date date;
     private String sender;
-    private Bitmap pictureSender;
+    private String pictureSender;
     private Integer criticity;
     private Double distance;
     private String type;
@@ -33,7 +31,7 @@ public class Alert implements Parcelable {
         id = in.readString();
         date = (java.util.Date) in.readSerializable();
         sender = in.readString();
-        pictureSender = Bitmap.CREATOR.createFromParcel(in);
+        pictureSender = in.readString();
         criticity = in.readInt();
         distance = in.readDouble();
         type = in.readString();
@@ -144,11 +142,11 @@ public class Alert implements Parcelable {
         this.solved = solved;
     }
 
-    public Bitmap getPictureSender() {
+    public String getPictureSender() {
         return pictureSender;
     }
 
-    public void setPictureSender(Bitmap pictureSender) {
+    public void setPictureSender(String pictureSender) {
         this.pictureSender = pictureSender;
     }
 
@@ -162,7 +160,7 @@ public class Alert implements Parcelable {
         parcel.writeString(id);
         parcel.writeSerializable(date);
         parcel.writeString(sender);
-        parcel.writeParcelable(pictureSender, i);
+        parcel.writeString(pictureSender);
         parcel.writeInt(criticity);
         parcel.writeDouble(distance);
         parcel.writeString(type);

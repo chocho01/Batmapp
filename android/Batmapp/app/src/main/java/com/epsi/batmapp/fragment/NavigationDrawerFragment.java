@@ -117,17 +117,7 @@ public class NavigationDrawerFragment extends Fragment {
         name.setText(user);
         mail.setText(email);
 
-        ImageDownloader downloader =  new ImageDownloader();
-        downloader.execute(imagePath);
-
-        try {
-            profilePicture.setImageBitmap(downloader.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-
+        new ImageDownloader(profilePicture).execute(imagePath);
 
         ListView listView = (ListView)view.findViewById(R.id.mleftMenuListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

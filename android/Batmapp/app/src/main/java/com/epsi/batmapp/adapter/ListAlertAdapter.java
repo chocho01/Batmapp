@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epsi.batmapp.R;
+import com.epsi.batmapp.helper.ImageDownloader;
 import com.epsi.batmapp.model.Alert;
 
 import java.text.DecimalFormat;
@@ -65,21 +66,9 @@ public class ListAlertAdapter extends ArrayAdapter<Alert> {
         }
 
         if(itemsArrayList.get(position).getPictureSender()!=null){
-            profilePicture.setImageBitmap(itemsArrayList.get(position).getPictureSender());
+            new ImageDownloader(profilePicture).execute(context.getString(R.string.image_server_path)
+                    +itemsArrayList.get(position).getPictureSender());
         }
-
-
-//        switch (itemsArrayList.get(position).getCriticity()){
-//            case 1:
-//                typeText.setTextColor(Color.GREEN);
-//                break;
-//            case 2:
-//                typeText.setTextColor(Color.YELLOW);
-//                break;
-//            case 3:
-//                typeText.setTextColor(Color.RED);
-//                break;
-//        }
 
         return rowView;
     }
