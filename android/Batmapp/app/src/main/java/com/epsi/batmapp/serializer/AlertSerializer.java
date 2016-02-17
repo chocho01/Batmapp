@@ -40,7 +40,6 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
     private static String SAMU ="samu";
     private static String SOLVED ="solved";
     private static String PICTURE = "profilPicture";
-    private static String IMAGE_BASE_URL = "http://batmapp.martin-choraine.fr/img/profil/";
 
     @Override
     public JsonElement serialize(Alert alert, Type typeOfSrc, JsonSerializationContext context) {
@@ -73,19 +72,7 @@ public class AlertSerializer implements JsonSerializer<Alert>, JsonDeserializer<
 
         if(jsonAlert.get(SENDER) instanceof JsonObject){
             alert.setSender(jsonAlert.get(SENDER).getAsJsonObject().get(NAME).getAsString());
-            String pictureName = jsonAlert.get(SENDER).getAsJsonObject().get(PICTURE).getAsString();
-
-            ImageDownloader downloader =  new ImageDownloader();
-            downloader.execute(IMAGE_BASE_URL+pictureName);
-
-            try {
-                alert.setPictureSender(downloader.get());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-
+            alert.setPictureSender(jsonAlert.get(SENDER).getAsJsonObject().get(PICTURE).getAsString());
         }else {
             alert.setSender(jsonAlert.get(SENDER).getAsString());
         }

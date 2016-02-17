@@ -13,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epsi.batmapp.R;
+import com.epsi.batmapp.helper.ImageDownloader;
 import com.epsi.batmapp.manager.ApiManager;
 import com.epsi.batmapp.model.Alert;
+import com.epsi.batmapp.model.Session;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,6 +34,7 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
     private TextView libelleDistance;
     private ImageView icPolice;
     private ImageView icSamu;
+    private ImageView pictureSender;
 
     private static final int OMW=0;
     private static final int POLICE=1;
@@ -60,10 +63,12 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
         libelleDistance = (TextView) findViewById(R.id.DetailDistance);
         icPolice = (ImageView) findViewById(R.id.alertPolice);
         icSamu = (ImageView) findViewById(R.id.alertSamu);
+        pictureSender = (ImageView) findViewById(R.id.DetailimageView);
 
         libelleType.setText(currentAlert.getType().toUpperCase());
         libelleSender.setText(currentAlert.getSender() + SPACE + getString(R.string.list_alert_sender_view));
         libelleReceiver.setText(currentAlert.getReceiver().length + SPACE + getString(R.string.list_alert_receiver_view));
+        new ImageDownloader(pictureSender).execute(getString(R.string.image_server_path)+currentAlert.getPictureSender());
 
         if(null != currentAlert.getDistance()){
             libelleDistance.setText(currentAlert.getDistance().toString()+SPACE+getString(R.string.km));
