@@ -31,12 +31,15 @@ module.exports = (commands, user, callback)->
       else if cambriolageAlert.test(command)
         AlertRepository.createSpeechAlert(TypeAlert["cambriolage"], user)
         callback("Ok j'avertis tout le monde du cambriolage")
+        isCmdUnderstand = true
       else if malaiseAlert.test(command)
         AlertRepository.createSpeechAlert(TypeAlert["malaise"], user)
-        callback("Ok j'avertis tout le monde du cambriolage")
+        callback("Ok j'avertis tout le monde du malaise")
+        isCmdUnderstand = true
       else if agressionAlert.test(command)
         AlertRepository.createSpeechAlert(TypeAlert["agression"], user)
-        callback("Ok j'avertis tout le monde du cambriolage")
+        callback("Ok j'avertis tout le monde du aggresion")
+        isCmdUnderstand = true
       else if wantLaunchAlert.test(command)
         isCmdUnderstandForAlert = true
 
