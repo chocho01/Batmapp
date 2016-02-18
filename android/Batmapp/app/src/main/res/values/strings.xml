@@ -75,8 +75,8 @@
         <item>Guerre nucléaire</item>
         <item>Invasion aliens</item>
         <item>Inondation planétaire</item>
+        <item>Cataclysme cosmique</item>
         <item>La mère à Martin débarque</item>
-        <item>Uranus l\'utérus</item>
     </string-array>
 
     <!-- Menu item -->
@@ -100,5 +100,8 @@
 
     <!-- Users List-->
     <string name="title_activity_user_list">Liste des utilisateurs</string>
+    <string name="title_activity_alerts_map">AlertsMap</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

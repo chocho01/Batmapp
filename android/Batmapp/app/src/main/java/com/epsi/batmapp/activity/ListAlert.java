@@ -139,6 +139,10 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
                 Intent goToCreateAlert = new Intent(this, CreateAlert.class);
                 startActivity(goToCreateAlert);
                 break;
+            case R.id.displayAlertsMap:
+                Intent goToAlertsMap = new Intent(this, AlertsMap.class);
+                startActivity(goToAlertsMap);
+                break;
         }
 
         return super.onOptionsItemSelected(item);

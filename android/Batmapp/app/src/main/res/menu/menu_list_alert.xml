@@ -4,8 +4,15 @@
     tools:context="com.epsi.batmapp.activity.ListAlert">
 
     <item
+        android:id="@+id/displayAlertsMap"
+        android:icon="@drawable/ic_map_white_24dp"
+        android:title="@string/menu_list_alert_item"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/createAlert"
         android:icon="@drawable/ic_bell_plus"
         android:title="@string/menu_list_alert_item"
         app:showAsAction="ifRoom"/>
+
 </menu>

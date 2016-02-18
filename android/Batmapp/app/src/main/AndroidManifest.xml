@@ -64,7 +64,11 @@
         <activity
             android:name=".activity.UserList"
             android:label="@string/title_activity_user_list"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.AlertsMap"
+            android:label="@string/title_activity_alerts_map" >
         </activity>
     </application>
 
