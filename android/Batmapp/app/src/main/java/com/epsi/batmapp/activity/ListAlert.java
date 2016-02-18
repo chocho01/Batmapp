@@ -56,7 +56,6 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
-        // Set up the drawer.
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
         listView = (ListView) findViewById(R.id.AlertListView);
@@ -146,13 +145,10 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_profile);
                 break;
             case 2:
-                mTitle = getString(R.string.title_stat);
                 break;
             case 3:
-                mTitle = getString(R.string.title_history);
                 break;
         }
     }

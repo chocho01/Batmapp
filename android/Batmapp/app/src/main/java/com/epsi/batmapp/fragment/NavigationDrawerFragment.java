@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.activity.Authentication;
 import com.epsi.batmapp.activity.DetailUser;
+import com.epsi.batmapp.activity.ListAlert;
 import com.epsi.batmapp.helper.ImageDownloader;
 import com.epsi.batmapp.model.Session;
 
@@ -68,8 +69,8 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mUserLearnedDrawer;
 
     private static final int PROFILE=0;
-    private static final int STATS=1;
-    private static final int HISTORY=2;
+    private static final int LAST_ALERTS=1;
+    private static final int LIST_USERS=2;
     private static final int DECO=3;
     private static final String SPACE =" ";
 
@@ -131,8 +132,8 @@ public class NavigationDrawerFragment extends Fragment {
                 R.layout.text_left_menu_list,
                 new String[]{
                         getString(R.string.title_profile),
-                        getString(R.string.title_stat),
-                        getString(R.string.title_history),
+                        getString(R.string.title_last_alerts),
+                        getString(R.string.title_users),
                         getString(R.string.title_deco),
                 }));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -143,9 +144,11 @@ public class NavigationDrawerFragment extends Fragment {
                         Intent goToLoginView = new Intent(view.getContext(), DetailUser.class);
                         view.getContext().startActivity(goToLoginView);
                         break;
-                    case STATS:
+                    case LAST_ALERTS:
+                        Intent goToListAlerts = new Intent(view.getContext(), ListAlert.class);
+                        view.getContext().startActivity(goToListAlerts);
                         break;
-                    case HISTORY:
+                    case LIST_USERS:
                         break;
                     case DECO:
                         Intent backToLoginView = new Intent(view.getContext(), Authentication.class);

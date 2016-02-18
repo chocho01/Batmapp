@@ -61,7 +61,6 @@ public class Registration extends AppCompatActivity {
             user.setPassword(pwd);
             user.setFirstName(fName);
             user.setLastName(lName);
-            //user.setLastCoordKnown();
             manager.RegistrationAPI(user);
         }
     }

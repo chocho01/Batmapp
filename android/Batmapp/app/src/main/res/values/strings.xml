@@ -36,7 +36,7 @@
 
     <!-- Ressources ListAlert-->
     <string name="title_activity_list_alert">Liste des alertes</string>
-    <string name="list_alert_sender_view">appel au secour</string>
+    <string name="list_alert_sender_view">appel au secours</string>
     <string name="list_alert_receiver_view">personne(s) sont en chemin</string>
     <string name="title_activity_detail_alert">DetailAlert</string>
     <string name="alert_selected">AlertSelected</string>
@@ -88,12 +88,17 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="title_profile">Modifier son profile</string>
-    <string name="title_stat">Statistique</string>
-    <string name="title_history">Historique</string>
+    <string name="title_profile">Mon Compte</string>
+    <string name="title_last_alerts">Les dernières alertes</string>
+    <string name="title_users">Liste des utilisateurs</string>
     <string name="title_deco">Déconnexion</string>
 
     <string name="user_picture_description">Image de profil du sender</string>
-    <string name="title_activity_detail_user">Profile</string>
+    <string name="title_activity_detail_user">Mon Compte</string>
+
+    <!-- Users List-->
+    <string name="title_activity_user_list">Liste des utilisateurs</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>
