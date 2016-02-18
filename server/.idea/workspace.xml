@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4f4b550-8d58-4db3-b20d-6c4a51a50c91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ResolveButton.swift" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp-Bridging-Header.h" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp-Header.h" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Assets.xcassets/password_icon.imageset/Contents.json" afterPath="" />
@@ -30,6 +29,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.h" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.m" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ProfileController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ProfileController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ResolveButton.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ResolveButton.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/SideViewController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/SideViewController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/User.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/User.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserAlertsTableCell.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserAlertsTableCell.swift" />
@@ -41,6 +41,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ApiUser.coffee" afterPath="$PROJECT_DIR$/app/controllers/ApiUser.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repository/AlertRepository.coffee" afterPath="$PROJECT_DIR$/app/repository/AlertRepository.coffee" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,8 +67,8 @@
       <file leaf-file-name="AlertRepository.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/repository/AlertRepository.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+            <state vertical-scroll-proportion="-11.0">
+              <caret line="139" column="24" selection-start-line="139" selection-start-column="2" selection-end-line="139" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -82,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiUser.coffee" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiUser.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/ApiUser.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="31" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.5486111">
+              <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -95,17 +97,17 @@
       <file leaf-file-name="UserRepository.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/repository/UserRepository.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-13.333333">
               <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlertLauncher.coffee" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AlertLauncher.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1851852">
+            <state vertical-scroll-proportion="-22.777779">
               <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
               <folding />
             </state>
@@ -115,8 +117,8 @@
       <file leaf-file-name="Alert.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Alert.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="8" />
+            <state vertical-scroll-proportion="-6.4444447">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -167,15 +169,15 @@
         <option value="$PROJECT_DIR$/test/ApiUserTest.coffee" />
         <option value="$PROJECT_DIR$/config/config.coffee" />
         <option value="$PROJECT_DIR$/app/controllers/ApiAlert.coffee" />
-        <option value="$PROJECT_DIR$/app/models/Alert.coffee" />
         <option value="$PROJECT_DIR$/config/express.coffee" />
         <option value="$PROJECT_DIR$/app/controllers/ApiLogin.coffee" />
         <option value="$PROJECT_DIR$/app/controllers/apiAlert.coffee" />
-        <option value="$PROJECT_DIR$/app/controllers/ApiUser.coffee" />
-        <option value="$PROJECT_DIR$/app/repository/AlertRepository.coffee" />
         <option value="$PROJECT_DIR$/app/models/User.coffee" />
         <option value="$PROJECT_DIR$/app/repository/UserRepository.coffee" />
         <option value="$PROJECT_DIR$/app/services/AlertLauncher.coffee" />
+        <option value="$PROJECT_DIR$/app/models/Alert.coffee" />
+        <option value="$PROJECT_DIR$/app/repository/AlertRepository.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/ApiUser.coffee" />
       </list>
     </option>
   </component>
@@ -553,16 +555,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Gulp" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2319301" sideWeight="0.523614" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2319301" sideWeight="0.523614" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2319301" sideWeight="0.47638604" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32452276" sideWeight="0.50277996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32796487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28696924" sideWeight="0.49722" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -570,13 +574,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39941263" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32796487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -916,26 +918,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/repository/AlertRepository.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ApiUser.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="31" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -947,26 +933,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/repository/UserRepository.coffee">
+    <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state vertical-scroll-proportion="-22.777779">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/AlertLauncher.coffee">
+    <entry file="file://$PROJECT_DIR$/app/repository/UserRepository.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1851852">
-          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        <state vertical-scroll-proportion="-13.333333">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Alert.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="8" />
+        <state vertical-scroll-proportion="-6.4444447">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/repository/AlertRepository.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.0">
+          <caret line="139" column="24" selection-start-line="139" selection-start-column="2" selection-end-line="139" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ApiUser.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5486111">
+          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
           <folding />
         </state>
       </provider>
