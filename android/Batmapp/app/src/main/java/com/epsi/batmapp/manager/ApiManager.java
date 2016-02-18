@@ -6,18 +6,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+
 import com.android.volley.Request;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.activity.Authentication;
 import com.epsi.batmapp.activity.ListAlert;
+import com.epsi.batmapp.helper.MultipartRequest;
 import com.epsi.batmapp.model.Alert;
 import com.epsi.batmapp.model.User;
 import com.epsi.batmapp.serializer.AlertSerializer;
@@ -30,9 +30,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.concurrent.ExecutionException;
+import java.util.HashMap;
+
 
 /**
  * Created by arnaud on 04/02/16.
@@ -139,33 +141,6 @@ public class ApiManager {
 
     }
 
-    public boolean AuthenticationAPI (String email, String pwd){
-        JSONObject jsonParams = new JSONObject();
-        try {
-            jsonParams.put(context.getString(R.string.api_login_param_user),email);
-            jsonParams.put(context.getString(R.string.api_login_param_pwd),pwd);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        String url = context.getString(R.string.api_login_url);
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.POST, url, jsonParams, future,future);
-        /*TODO
-            Gérer les différents code retour
-         */
-        Volley.newRequestQueue(context).add(jsObjRequest);
-        try {
-            JSONObject response = future.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        return connected;
-    }
-
     public void displayAlertMessage(String title, String message){
         //Affiche un message d'erreur avec le titre et message passé en pramètre.
         new AlertDialog.Builder(context)
@@ -266,6 +241,40 @@ public class ApiManager {
 
     }
 
+    public void updateAlertSolved(String idAlert){
+        String url = context.getString(R.string.api_update_solved)+idAlert;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+        Volley.newRequestQueue(context).add(stringRequest);
+    }
+
+    public void uploadImageProfile(String imagePath) {
+        String url = context.getString(R.string.api_upload_image_profile);
+        HashMap<String, String> params = new HashMap<String, String>();
+        File image = new File(imagePath);
+        MultipartRequest multipartRequest = new MultipartRequest(url, image,
+                new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                        }
+                },
+                new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                        }
+                });
+        Volley.newRequestQueue(context).add(multipartRequest);
+    }
 }
+
 
 

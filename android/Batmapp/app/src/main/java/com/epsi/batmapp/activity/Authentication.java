@@ -107,6 +107,7 @@ public class Authentication extends AppCompatActivity {
                       public void onResponse(JSONObject response) {
                           try {
                               userConnected = new User();
+                              userConnected.setId(response.getString("_id"));
                               userConnected.setEmail(response.getString("email"));
                               userConnected.setFirstName(response.getString("firstName"));
                               userConnected.setLastName(response.getString("lastName"));

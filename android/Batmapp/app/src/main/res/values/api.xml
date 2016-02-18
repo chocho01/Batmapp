@@ -19,6 +19,7 @@
 
     <!-- List Alerts-->
     <string name="api_listAlert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
+    <string name="api_listAlertPerso_url">http://batmapp.martin-choraine.fr/api/alerts/user/</string>
 
     <!-- Create Alert-->
     <string name="api_create_alert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
@@ -29,9 +30,11 @@
     <string name="api_update_911">http://batmapp.martin-choraine.fr/api/alerts/call-police/</string>
     <string name="api_update_samu">http://batmapp.martin-choraine.fr/api/alerts/call-samu/</string>
     <string name="api_update_bullshit">http://batmapp.martin-choraine.fr/api/alerts/</string>
+    <string name="api_update_solved">http://batmapp.martin-choraine.fr/api/alerts/resolve/</string>
 
     <!-- Image Server Path-->
     <string name="image_server_path">http://batmapp.martin-choraine.fr/img/profil/</string>
+    <string name="api_upload_image_profile">http://batmapp.martin-choraine.fr/api/users/upload</string>
 
     <!-- Google Map Api Key-->
     <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyBSCu5-F78hCRr4Shivv2WaQk4orDsqXeU</string>

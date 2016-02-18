@@ -27,6 +27,7 @@ public class UserSerializer implements JsonSerializer<User>, JsonDeserializer<Us
     private static String L_NAME="lastName";
     private static String LAT ="latitude";
     private static String LNT ="longitude";
+    private static String PICTURE ="profilPicture";
 
     @Override
     public JsonElement serialize(User user, Type typeOfSrc, JsonSerializationContext context) {
@@ -51,6 +52,7 @@ public class UserSerializer implements JsonSerializer<User>, JsonDeserializer<Us
         user.setPassword(jsonUser.get(PWD).getAsString());
         user.setFirstName(jsonUser.get(F_NAME).getAsString());
         user.setLastName(jsonUser.get(L_NAME).getAsString());
+        user.setPicture(jsonUser.get(PICTURE).getAsString());
         return user;
     }
 }

@@ -59,6 +59,11 @@
         <activity
             android:name=".activity.DetailUser"
             android:label="@string/title_activity_detail_user"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.UserList"
+            android:label="@string/title_activity_user_list"
             android:screenOrientation="portrait">
         </activity>
     </application>

@@ -7,6 +7,7 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class User {
 
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -18,6 +19,7 @@ public class User {
     }
 
     public User(User user){
+        this.id = user.getId();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
@@ -26,10 +28,19 @@ public class User {
         this.lastCoordKnown = user.getLastCoordKnown();
     }
 
-    public User(String firstName, String lastName, String email) {
+    public User(String id, String firstName, String lastName, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
