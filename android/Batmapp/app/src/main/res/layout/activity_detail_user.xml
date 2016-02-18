@@ -6,8 +6,9 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
+        android:layout_height="230dp"
         android:gravity="center"
+        android:orientation="vertical"
         android:background="@color/green_lite_4">
 
         <ImageView
@@ -16,12 +17,27 @@
             android:id="@+id/imageViewDetailUser"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/DetailUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textColor="@color/grey"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/DetailUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/grey" />
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/green_lite_5">
 
@@ -32,8 +48,20 @@
             android:src="@drawable/ic_file_upload_white_36dp"
             android:tint="@color/green_lite_1"
             android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
             android:contentDescription="Upload"
             android:onClick="openGallery"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            android:text="@string/updateImage"
+            android:textColor="@color/green_lite_1"
+            android:onClick="openGallery"/>
+
 
     </LinearLayout>
     <ListView

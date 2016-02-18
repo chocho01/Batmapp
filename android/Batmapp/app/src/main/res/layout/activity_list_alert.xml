@@ -4,7 +4,7 @@
     tools:context=".MainActivity">
 
     <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
+        style="?android:attr/progressBarStyleSmall"
         android:id="@+id/progressbar_loading"
         android:layout_width="50dp"
         android:layout_height="50dp" />

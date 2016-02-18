@@ -111,6 +111,14 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
             }
         });
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            mNavigationDrawerFragment.closeDrawer();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -190,13 +198,6 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
         }
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            mNavigationDrawerFragment.closeDrawer();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+
 
 }

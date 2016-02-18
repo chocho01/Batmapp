@@ -32,7 +32,7 @@
     <string name="register">S\'enregistrer</string>
 
     <!-- Ressources Registration-->
-    <string name="title_activity_registration">Registration</string>
+    <string name="title_activity_registration">S\'enregistrer</string>
 
     <!-- Ressources ListAlert-->
     <string name="title_activity_list_alert">Liste des alertes</string>
@@ -88,17 +88,17 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- User Detail -->
     <string name="title_profile">Mon Compte</string>
     <string name="title_last_alerts">Les dernières alertes</string>
     <string name="title_users">Liste des utilisateurs</string>
     <string name="title_deco">Déconnexion</string>
+    <string name="updateImage">Modifier mon image</string>
 
     <string name="user_picture_description">Image de profil du sender</string>
     <string name="title_activity_detail_user">Mon Compte</string>
 
     <!-- Users List-->
     <string name="title_activity_user_list">Liste des utilisateurs</string>
-
-    <string name="hello_world">Hello world!</string>
 
 </resources>

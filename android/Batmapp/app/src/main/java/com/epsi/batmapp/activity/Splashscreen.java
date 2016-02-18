@@ -17,10 +17,10 @@ public class Splashscreen extends Activity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_splashscreen);
 
+        //On affiche le splashscreen pendant deux secondes
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
                 Intent goToAuthentication = new Intent(Splashscreen.this, Authentication.class);
                 Splashscreen.this.startActivity(goToAuthentication);
                 Splashscreen.this.finish();
@@ -29,6 +29,5 @@ public class Splashscreen extends Activity {
 
         //On instancie le singleton GeoManager pour la géolocalisation de l'utilisateur
         GeoManager.getInstance(this);
-
     }
 }

@@ -28,6 +28,7 @@ import com.epsi.batmapp.R;
 import com.epsi.batmapp.activity.Authentication;
 import com.epsi.batmapp.activity.DetailUser;
 import com.epsi.batmapp.activity.ListAlert;
+import com.epsi.batmapp.activity.UserList;
 import com.epsi.batmapp.helper.ImageDownloader;
 import com.epsi.batmapp.model.Session;
 
@@ -149,6 +150,8 @@ public class NavigationDrawerFragment extends Fragment {
                         view.getContext().startActivity(goToListAlerts);
                         break;
                     case LIST_USERS:
+                        Intent goToListUsers = new Intent(view.getContext(), UserList.class);
+                        view.getContext().startActivity(goToListUsers);
                         break;
                     case DECO:
                         Intent backToLoginView = new Intent(view.getContext(), Authentication.class);

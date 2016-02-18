@@ -21,6 +21,9 @@
     <string name="api_listAlert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
     <string name="api_listAlertPerso_url">http://batmapp.martin-choraine.fr/api/alerts/user/</string>
 
+    <!-- List Users-->
+    <string name="api_listUsers_url">http://batmapp.martin-choraine.fr/api/users</string>
+
     <!-- Create Alert-->
     <string name="api_create_alert_url">http://batmapp.martin-choraine.fr/api/alerts</string>
     <string name="api_create_vocal_alert_url">http://batmapp.martin-choraine.fr/api/alerts/command</string>

@@ -21,6 +21,7 @@ import java.lang.reflect.Type;
 public class UserSerializer implements JsonSerializer<User>, JsonDeserializer<User> {
 
 
+    private static String ID="_id";
     private static String EMAIL="email";
     private static String PWD="password";
     private static String F_NAME="firstName";
@@ -48,6 +49,7 @@ public class UserSerializer implements JsonSerializer<User>, JsonDeserializer<Us
     public User deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonUser = json.getAsJsonObject();
         User user = new User();
+        user.setId(jsonUser.get(ID).getAsString());
         user.setEmail(jsonUser.get(EMAIL).getAsString());
         user.setPassword(jsonUser.get(PWD).getAsString());
         user.setFirstName(jsonUser.get(F_NAME).getAsString());
