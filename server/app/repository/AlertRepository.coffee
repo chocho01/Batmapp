@@ -136,3 +136,10 @@ module.exports =
         alert.geoPosition.latitude = form.latitude
         alert.geoPosition.longitude = form.longitude
         alert.save()
+
+  udpateImageOfUserAlert : (image, user)->
+    AlertModel
+    .find({"sender.id" : user._id})
+    .exec (err, alerts)->
+      alerts.forEach (alert)->
+        alert.sender.profilPicture = image

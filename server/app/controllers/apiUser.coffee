@@ -95,6 +95,7 @@ router.post '/upload', Authentification.isAuth, upload.single('file'), (req, res
           if(err)
             res.status(400).send(err)
           else
+            AlertRepository.udpateImageOfUserAlert(req.file.filename, req.user)
             res.send(user)
         )
       else
