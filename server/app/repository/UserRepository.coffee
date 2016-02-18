@@ -26,7 +26,7 @@ module.exports =
         user.save()
         callback(err, user)
 
-  updateImage : (form, user, callback)->
+  updateToken : (form, user, callback)->
     UserModel
       .findById(user._id)
       .exec (err, user)->
