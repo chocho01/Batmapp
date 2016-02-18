@@ -1,9 +1,9 @@
-//
-//  ResolveButton.swift
-//  Batmapp
-//
-//  Created by Martin Choraine on 18/02/2016.
-//  Copyright © 2016 Martin Choraine. All rights reserved.
-//
+import UIKit
+import Material
 
-import Foundation
+/*
+* Button custom pour rajouter l'id de l'alert dans le boutton
+*/
+class ResolveButton: FlatButton {
+    var idAlert: String?
+}

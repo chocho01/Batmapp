@@ -9,5 +9,8 @@
 #ifndef NuanceHeader_h
 #define NuanceHeader_h
 
+#import <Foundation/Foundation.h>
+@interface NuanceHeader : NSObject
+@end
 
 #endif /* NuanceHeader_h */
