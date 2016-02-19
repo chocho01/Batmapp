@@ -65,7 +65,6 @@ class InscriptionController: UIViewController {
         titleLabel.textColor = MaterialColor.white
         titleLabel.font = RobotoFont.regularWithSize(20)
         navigationBarView.titleLabel = titleLabel
-        navigationBarView.titleLabelInset.left = 64
         
         let imgBack: UIImage? = UIImage(named: "arrow-left-bold")
         let btnBack: FlatButton = FlatButton()

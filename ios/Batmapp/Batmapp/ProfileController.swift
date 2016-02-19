@@ -79,7 +79,7 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
         MaterialLayout.size(topBackground, child: profileView, width: 150, height: 150)
 
         labelName.text = "\(UserSession.sharedInstance.user.firstName) \(UserSession.sharedInstance.user.lastName)"
-        labelName.textColor = MaterialColor.teal.darken3
+        labelName.textColor = MaterialColor.black
         labelName.font = RobotoFont.regularWithSize(20)
     }
 
@@ -92,16 +92,19 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
         actionBar.pulseScale = false
         actionBar.backgroundColor = MaterialColor.teal.lighten5
         
-        let imgUpload: UIImage? = UIImage(named: "ic_file_upload")
+        let imgUpload: UIImage? = UIImage(named: "ic_file_upload")!.imageWithRenderingMode(.AlwaysTemplate)
         let btnUploadImg: FlatButton = FlatButton()
         btnUploadImg.pulseColor = MaterialColor.white
         btnUploadImg.pulseFill = true
         btnUploadImg.pulseScale = false
+        btnUploadImg.setTitle("Modifier mon image", forState: .Normal)
+        btnUploadImg.setTitleColor(MaterialColor.teal.base, forState: .Normal)
         btnUploadImg.setImage(imgUpload, forState: .Normal)
         btnUploadImg.setImage(imgUpload, forState: .Highlighted)
+        btnUploadImg.tintColor = MaterialColor.teal.base
         btnUploadImg.addTarget(self, action: "chooseImage", forControlEvents: .TouchUpInside)
         
-        actionBar.rightButtons = [btnUploadImg]
+        actionBar.leftButtons = [btnUploadImg]
     }
 
     /*
