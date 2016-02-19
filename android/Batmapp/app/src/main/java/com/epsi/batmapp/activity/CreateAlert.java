@@ -54,6 +54,7 @@ public class CreateAlert extends AppCompatActivity {
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.green_lite_1)));
 
+        //On instancie l'API manager et une nouvelle alerte
         manager =  new ApiManager(this);
         userDetails =  this.getSharedPreferences(getString(R.string.detail_user_session), Context.MODE_PRIVATE);
         sender = userDetails.getString(getString(R.string.f_name_user_session), EMPTY);
@@ -61,6 +62,8 @@ public class CreateAlert extends AppCompatActivity {
 
         newAlert = new Alert();
         newAlert.setSender(sender);
+
+        //On récupère les éléments de la vue, on peuple le spinner...
 
         spinner = (Spinner) findViewById(R.id.spinner_type);
 
@@ -103,6 +106,7 @@ public class CreateAlert extends AppCompatActivity {
     }
 
     public void sendAlert(View view){
+        //Set les différents attribu d'une alerte et l'envoie au serveur
         newAlert.setDate(new Date());
         newAlert.setCoord(GeoManager.getInstance(this).getLastCoordsKnownFromPreferences());
         newAlert.setCriticity(selectedCriticity);
@@ -155,6 +159,7 @@ public class CreateAlert extends AppCompatActivity {
     }
 
     public void launchSpeechRecognition(){
+        //Ouvre la fenetre de dialogue pour la reconaissance vocal
         Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "fr-FR");
         try {
@@ -166,6 +171,10 @@ public class CreateAlert extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        /*
+            Fonction de callback de succès pour la reconaissance vocal
+            Envoie une alerte automatique au serveur
+         */
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==REQUEST_OK  && resultCode==RESULT_OK) {
             ArrayList<String> thingsYouSaid = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);

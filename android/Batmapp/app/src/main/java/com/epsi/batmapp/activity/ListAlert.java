@@ -66,12 +66,13 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
 
     @Override
     public void onResume() {
+        //On rappel le serveur a chaque retour sur l'écran
         super.onResume();
         this.getAlerts();
     }
 
     public void getAlerts(){
-
+        //Récupère la liste des alertes
          GsonBuilder gsonBuilder = new GsonBuilder();
          gsonBuilder.registerTypeAdapter(Alert.class, new AlertSerializer());
          gsonBuilder.setPrettyPrinting();
@@ -96,6 +97,7 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
      }
 
     public void displayData(){
+        //Fonction de callback, affiche les données récupèré par le serveur
         pb.setVisibility(View.INVISIBLE);
         adapter = new ListAlertAdapter(this, listAlerts);
         listView.setAdapter(adapter);
@@ -133,6 +135,7 @@ public class ListAlert extends AppCompatActivity implements NavigationDrawerFrag
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        //Action sur le menu
 
         switch (item.getItemId()) {
             case R.id.createAlert:

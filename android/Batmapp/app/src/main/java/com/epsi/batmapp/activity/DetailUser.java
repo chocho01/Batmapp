@@ -60,12 +60,13 @@ public class DetailUser extends AppCompatActivity implements NavigationDrawerFra
         setContentView(R.layout.activity_detail_user);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.green_lite_1)));
 
+        //On récupère la session utilisateur et les différents élément de la vue
         session = Session.getInstance(null);
-
         img = (ImageView) findViewById(R.id.imageViewDetailUser);
         nameText = (TextView) findViewById(R.id.DetailUserName);
         emailText = (TextView) findViewById(R.id.DetailUserEmail);
 
+        //On télécharge l'image de profile de l'utilisateur
         new ImageDownloader(img).execute(getString(R.string.image_server_path)
                 +session.getUserConnected().getPicture());
 
@@ -78,11 +79,13 @@ public class DetailUser extends AppCompatActivity implements NavigationDrawerFra
 
     @Override
     protected void onResume() {
+        //On rafraichit la liste des alertes à chaque fois qu'on revient sur l'activité
         super.onResume();
         this.getAlerts();
     }
 
     public void openGallery(View view){
+        //Fonction pour ouvrir le gestionnaire d'image
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -90,7 +93,10 @@ public class DetailUser extends AppCompatActivity implements NavigationDrawerFra
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+    /*
+        Fonction de callback du gestionnaire d'image
+        On récupère l'image choisi et on l'envoi au serveur
+     */
         if (resultCode == RESULT_OK) {
             if (requestCode == SELECTED_PICTURE) {
                 Uri selectedImageUri = data.getData();
@@ -102,10 +108,11 @@ public class DetailUser extends AppCompatActivity implements NavigationDrawerFra
     }
 
     public String getPath(Uri uri){
+        //Fonction pour récupèrer le chemin d'une image sur le téléphone
         String[] projection = { MediaStore.Images.Media.DATA };
         Cursor cursor = managedQuery(uri, projection, null, null, null);
         if (cursor == null) return null;
-        int column_index =             cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        int column_index =cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
         String s=cursor.getString(column_index);
         cursor.close();
@@ -113,7 +120,7 @@ public class DetailUser extends AppCompatActivity implements NavigationDrawerFra
     }
 
     public void getAlerts(){
-
+        //Appel web service pour récupèrer la liste des alertes perso
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Alert.class, new AlertSerializer());
         gsonBuilder.setPrettyPrinting();
@@ -139,6 +146,7 @@ public class DetailUser extends AppCompatActivity implements NavigationDrawerFra
     }
 
     public void displayData(){
+        //Callback succès, affiche les alertes récupèrées du serveur
         adapter = new ListAlertPersoAdapter(this, listAlerts);
         alertsListView.setAdapter(adapter);
 

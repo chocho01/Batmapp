@@ -32,7 +32,7 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.green_lite_1)));
-
+        //Récupère les éléments de la vue
         emailText = (EditText) findViewById(R.id.emailText);
         pwdText = (EditText) findViewById(R.id.pwdRegistrationText);
         fNameText = (EditText) findViewById(R.id.firstNameText);
@@ -44,7 +44,7 @@ public class Registration extends AppCompatActivity {
     }
 
     public void sendRegistration(View view) {
-
+        //Récupère les données saisi par le user
         String email = emailText.getText().toString();
         String pwd = pwd = pwdText.getText().toString();
         String fName = fNameText.getText().toString();
@@ -52,6 +52,7 @@ public class Registration extends AppCompatActivity {
 
         ApiManager manager = new ApiManager(this);
 
+        //Vérifie que tout les éléments sont bien renseignés et envoie au serveur
         if(email.equals("")||pwd.equals("")||fName.equals("")||lName.equals("")){
             manager.displayAlertMessage(getString(R.string.error_registration_title),
                     getString(R.string.error_authentication_champs));

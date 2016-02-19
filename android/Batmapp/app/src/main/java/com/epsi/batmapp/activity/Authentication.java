@@ -79,10 +79,11 @@ public class Authentication extends AppCompatActivity {
     }
 
   public void launchAuthentication(){
-
+      //Fonction appel quand on valide l'authentication
       String email = loginText.getText().toString();
       String pwd= pwdText.getText().toString();
 
+      //On vérifie que tous les champs sont rentrés
       if(email.equals(EMPTY) || pwd.equals(EMPTY)) {
           displayAlertMessage(getString(R.string.error_authentication_title),
                   getString(R.string.error_authentication_champs));
@@ -140,6 +141,11 @@ public class Authentication extends AppCompatActivity {
                                   getString(R.string.error_authentication_401));
                       }
                   });
+          /*
+           *On définis le cookie manager pour gérer la session coté serveur
+           * car Android Volley ne le gère pas
+           */
+
           CookieManager manager = new CookieManager();
           CookieHandler.setDefault(manager);
           Volley.newRequestQueue(this).add(jsObjRequest);
@@ -147,6 +153,10 @@ public class Authentication extends AppCompatActivity {
   }
 
     public void launchRegistration(){
+        /*
+         *Fonction appellé au clique sur le bouton s'enregistrer
+         *Renvoi sur l'écran d'inscription
+         */
         Intent goToRegistration = new Intent(this, Registration.class);
         this.startActivity(goToRegistration);
     }

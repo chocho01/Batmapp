@@ -48,6 +48,7 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_alert);
 
+        //On récupère la map de la vue
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -64,6 +65,8 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
         icSamu = (ImageView) findViewById(R.id.alertSamu);
         pictureSender = (ImageView) findViewById(R.id.DetailimageView);
 
+
+        //On set les valeurs de l'alerte aux différents éléments de la vue
         libelleType.setText(currentAlert.getType().toUpperCase());
         libelleSender.setText(currentAlert.getSender() + SPACE + getString(R.string.list_alert_sender_view));
         libelleReceiver.setText(currentAlert.getReceiver().length + SPACE + getString(R.string.list_alert_receiver_view));
@@ -89,7 +92,7 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
 
     @Override
     public void onMapReady(GoogleMap map) {
-        // On ajoute le marker de l'alert
+        // On ajoute le marker de l'alert quand la map est dispo
         map.addMarker(new MarkerOptions().position(this.currentAlert.getCoord()).title(
                 this.currentAlert.getSender() + SPACE + getString(R.string.marker_text)));
         map.moveCamera(CameraUpdateFactory.newLatLng(this.currentAlert.getCoord()));
@@ -97,6 +100,7 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
     }
 
     public void doActionOnAlert(View view){
+        //Ouvre une fenêtre de dialogue pour choisir une action à effectué sur l'alerte
         Resources res = getResources();
         final CharSequence[] items = res.getStringArray(R.array.list_action_alert);
 
@@ -125,6 +129,7 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
     }
 
     public void call911(){
+        //Lance un appel téléphonique à la police et set l'alerte avec police prevue
         if(!currentAlert.getPolice()){
             manager.updateAlert911(currentAlert.getId());
             Intent call911Intent = new Intent(Intent.ACTION_CALL, Uri.parse(getString(R.string.call_911_number)));
@@ -135,6 +140,7 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
     }
 
     public void callSamu(){
+        //Lance un appel téléphonique au samu et set l'alerte avec le samu deja prevenu
         if (!currentAlert.getSamu()) {
             manager.updateAlertSAMU(currentAlert.getId());
             Intent callSamuIntent = new Intent(Intent.ACTION_CALL, Uri.parse(getString(R.string.call_911_number)));
@@ -146,6 +152,7 @@ public class DetailAlert extends FragmentActivity implements OnMapReadyCallback 
 
     @Override
     public void onBackPressed() {
+        //On rajoute une animation sur la transition de retour en arrière
         super.onBackPressed();
         overridePendingTransition(R.anim.hold, R.anim.pull_out_to_left);
     }

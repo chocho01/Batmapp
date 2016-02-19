@@ -38,6 +38,7 @@ public class AlertsMap extends FragmentActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts_map);
 
+        //On recupère le fragment de la map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -67,12 +68,13 @@ public class AlertsMap extends FragmentActivity implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        //Dès que la map est prête, on récupère les données
         mMap = googleMap;
         getAlerts();
     }
 
     public void getAlerts(){
-
+        //Appel web service pour recupèrer la liste des alertes et les affichés sur la map
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Alert.class, new AlertSerializer());
         gsonBuilder.setPrettyPrinting();

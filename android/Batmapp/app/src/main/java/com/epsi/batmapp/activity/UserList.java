@@ -45,7 +45,7 @@ public class UserList extends AppCompatActivity {
     }
 
     public void getUsers(){
-
+        //Récupère la liste des utilisateurs de l'application
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(User.class, new UserSerializer());
         gsonBuilder.setPrettyPrinting();
@@ -70,6 +70,7 @@ public class UserList extends AppCompatActivity {
     }
 
     public void displayData(){
+        //Afiiche les données récupèré du serveur
         adapter = new ListUserAdapter(this,listUser);
         listView.setAdapter(adapter);
     }
