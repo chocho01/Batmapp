@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4f4b550-8d58-4db3-b20d-6c4a51a50c91" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp-Bridging-Header.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp-Header.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Assets.xcassets/password_icon.imageset/Contents.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Assets.xcassets/password_icon.imageset/password_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Batmapp-Bridging-Header.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ViewController.swift" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.xcworkspace/xcuserdata/mchoraine.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.xcworkspace/xcuserdata/mchoraine.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/xcuserdata/mchoraine.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp.xcodeproj/xcuserdata/mchoraine.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AccountController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AccountController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AddAlertController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AddAlertController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Alert.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Alert.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListTable.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListTable.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListViewController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertListViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertMapController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertMapController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertParser.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertParser.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableCell.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableCell.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableView.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AlertTableView.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AppDelegate.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/AppDelegate.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Base.lproj/LaunchScreen.storyboard" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Base.lproj/LaunchScreen.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Info.plist" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/InscriptionController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/InscriptionController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.h" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.m" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/NuanceHeader.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ProfileController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ProfileController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ResolveButton.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/ResolveButton.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/SideViewController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/SideViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/User.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/User.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserAlertsTableCell.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserAlertsTableCell.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserListController.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserListController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserParser.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserParser.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserSession.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserSession.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserTableCell.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/UserTableCell.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/service/SpeechRecognizer.swift" afterPath="$PROJECT_DIR$/../ios/Batmapp/Batmapp/service/SpeechRecognizer.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" afterPath="$PROJECT_DIR$/../ios/Batmapp/Cartfile.resolved" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="a4f4b550-8d58-4db3-b20d-6c4a51a50c91" name="Default" comment="" />
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />

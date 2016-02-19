@@ -40,7 +40,7 @@
                                     <action selector="onConnexionBtnClick:" destination="BYZ-38-t0r" eventType="touchDown" id="OdH-Uq-teZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="martin" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-IE-WLu" customClass="TextField" customModule="Material">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-IE-WLu" customClass="TextField" customModule="Material">
                                 <rect key="frame" x="115" y="314" width="419" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -59,18 +59,6 @@
                                     <segue destination="a7e-Ot-BjD" kind="show" id="kBS-XZ-P9b"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="martin.choraine@gmail.com" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C0e-TN-noe" customClass="TextField" customModule="Material">
-                                <rect key="frame" x="115" y="264" width="419" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="q7D-UV-Rkd">
-                                <rect key="frame" x="150" y="77" width="300" height="104"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="FlW-T0-Yx0"/>
-                                    <constraint firstAttribute="height" constant="104" id="azV-ru-sTF"/>
-                                </constraints>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ic_lock" translatesAutoresizingMaskIntoConstraints="NO" id="jn2-2u-uMz">
                                 <rect key="frame" x="75" y="314" width="25" height="25"/>
                                 <constraints>
@@ -78,14 +66,34 @@
                                     <constraint firstAttribute="width" constant="25" id="wxO-ao-Yyd"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C0e-TN-noe" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="115" y="264" width="419" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="q7D-UV-Rkd">
+                                <rect key="frame" x="234" y="20" width="157" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="FlW-T0-Yx0"/>
+                                    <constraint firstAttribute="height" constant="245" id="azV-ru-sTF"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FlW-T0-Yx0"/>
+                                        <exclude reference="azV-ru-sTF"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="q7D-UV-Rkd" secondAttribute="trailing" constant="85" id="0Wl-ya-aGF"/>
                             <constraint firstItem="C0e-TN-noe" firstAttribute="leading" secondItem="o3C-N6-zlV" secondAttribute="trailing" constant="10" id="0tH-Wu-R5X"/>
-                            <constraint firstItem="jn2-2u-uMz" firstAttribute="top" secondItem="o3C-N6-zlV" secondAttribute="bottom" constant="70" id="4sV-ca-Hur"/>
+                            <constraint firstItem="jn2-2u-uMz" firstAttribute="top" secondItem="o3C-N6-zlV" secondAttribute="bottom" constant="40" id="4sV-ca-Hur"/>
                             <constraint firstItem="o3C-N6-zlV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="58M-5g-F3z"/>
                             <constraint firstItem="HCF-FD-VKn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7tn-z7-uTw"/>
                             <constraint firstItem="Fbn-hw-9Hk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Akr-kK-kYn"/>
+                            <constraint firstItem="C0e-TN-noe" firstAttribute="top" secondItem="q7D-UV-Rkd" secondAttribute="bottom" constant="30" id="Bcg-PD-VVF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fbn-hw-9Hk" secondAttribute="trailing" constant="20" id="CDt-te-haZ"/>
                             <constraint firstItem="bUi-IE-WLu" firstAttribute="leading" secondItem="jn2-2u-uMz" secondAttribute="trailing" constant="10" id="Cg1-qH-D6L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HCF-FD-VKn" secondAttribute="trailing" constant="30" id="DLQ-wI-Irh"/>
@@ -97,14 +105,17 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HCF-FD-VKn" secondAttribute="bottom" constant="50" id="UkZ-DZ-bXd"/>
                             <constraint firstItem="C0e-TN-noe" firstAttribute="top" secondItem="o3C-N6-zlV" secondAttribute="top" id="Vh7-Ch-VHB"/>
                             <constraint firstItem="jn2-2u-uMz" firstAttribute="top" secondItem="bUi-IE-WLu" secondAttribute="top" id="Wvd-GL-Y4S"/>
-                            <constraint firstItem="q7D-UV-Rkd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="90" id="Y3P-aa-QPv"/>
+                            <constraint firstItem="q7D-UV-Rkd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="Y3P-aa-QPv"/>
                             <constraint firstItem="Fbn-hw-9Hk" firstAttribute="top" secondItem="jn2-2u-uMz" secondAttribute="bottom" constant="50" id="ax8-vC-V3h"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C0e-TN-noe" secondAttribute="trailing" constant="30" id="bAg-MY-1f9"/>
+                            <constraint firstItem="q7D-UV-Rkd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="85" id="g8L-x7-dbX"/>
                             <constraint firstItem="jn2-2u-uMz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="gdJ-ft-7UP"/>
+                            <constraint firstItem="q7D-UV-Rkd" firstAttribute="leading" secondItem="o3C-N6-zlV" secondAttribute="trailing" constant="100" id="lfc-wD-UIn"/>
                             <constraint firstItem="o3C-N6-zlV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="pOF-2F-FPN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="lfc-wD-UIn"/>
                                 <exclude reference="58M-5g-F3z"/>
                             </mask>
                         </variation>
@@ -962,7 +973,7 @@
         <image name="ic_account_circle" width="24" height="24"/>
         <image name="ic_lock" width="24" height="24"/>
         <image name="ic_mic_white_48pt" width="48" height="48"/>
-        <image name="logo" width="300" height="104"/>
+        <image name="logo" width="314" height="470"/>
         <image name="police" width="24" height="24"/>
         <image name="samu" width="18" height="18"/>
     </resources>

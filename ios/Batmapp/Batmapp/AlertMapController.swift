@@ -43,10 +43,12 @@ class AlertMapController: UIViewController, MKMapViewDelegate  {
     * Positionne la map centré sur la position de l'utilisateur
     */
     func setZoom(){
-        let theSpan: MKCoordinateSpan = MKCoordinateSpanMake(0.6, 0.6)
-        let currentLocation = CLLocationCoordinate2D(latitude: UserSession.sharedInstance.user.lastPosition!.latitude, longitude: UserSession.sharedInstance.user.lastPosition!.longitude)
-        let theRegion: MKCoordinateRegion = MKCoordinateRegionMake(currentLocation, theSpan)
-        mapView.setRegion(theRegion, animated: true)
+        if(UserSession.sharedInstance.user.lastPosition != nil){
+            let theSpan: MKCoordinateSpan = MKCoordinateSpanMake(0.6, 0.6)
+            let currentLocation = CLLocationCoordinate2D(latitude: UserSession.sharedInstance.user.lastPosition!.latitude, longitude: UserSession.sharedInstance.user.lastPosition!.longitude)
+            let theRegion: MKCoordinateRegion = MKCoordinateRegionMake(currentLocation, theSpan)
+            mapView.setRegion(theRegion, animated: true)
+        }
     }
 
     /*
