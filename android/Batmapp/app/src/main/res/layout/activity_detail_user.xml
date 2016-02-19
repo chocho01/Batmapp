@@ -17,7 +17,8 @@
             android:id="@+id/imageViewDetailUser"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:onClick="openGallery"/>
 
         <TextView
             android:id="@+id/DetailUserName"

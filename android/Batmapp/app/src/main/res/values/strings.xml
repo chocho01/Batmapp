@@ -71,12 +71,11 @@
     <string name="alert_vocal_receiver_error">Erreur de reconaissance vocale</string>
 
     <string-array name="type_array">
-        <item>Attaque de zombie</item>
-        <item>Guerre nucléaire</item>
-        <item>Invasion aliens</item>
-        <item>Inondation planétaire</item>
-        <item>Cataclysme cosmique</item>
-        <item>La mère à Martin débarque</item>
+        <item>Agression séxuelle</item>
+        <item>Viole</item>
+        <item>Cambriolage</item>
+        <item>Incendie</item>
+        <item>Malaise</item>
     </string-array>
 
     <!-- Menu item -->
@@ -91,6 +90,7 @@
     <!-- User Detail -->
     <string name="title_profile">Mon Compte</string>
     <string name="title_last_alerts">Les dernières alertes</string>
+    <string name="title_create_alert">Créer une alerte</string>
     <string name="title_users">Liste des utilisateurs</string>
     <string name="title_deco">Déconnexion</string>
     <string name="updateImage">Modifier mon image</string>
@@ -102,6 +102,5 @@
     <string name="title_activity_user_list">Liste des utilisateurs</string>
     <string name="title_activity_alerts_map">AlertsMap</string>
 
-    <string name="hello_world">Hello world!</string>
 
 </resources>
