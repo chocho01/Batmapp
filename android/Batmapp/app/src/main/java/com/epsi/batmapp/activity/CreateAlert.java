@@ -89,6 +89,7 @@ public class CreateAlert extends AppCompatActivity {
             }
         });
 
+        //On récupère le picker pour la criticité et fixe les valeurs entre 1 et 5
         picker = (NumberPicker) findViewById(R.id.numberPicker);
         picker.setMinValue(1);
         picker.setMaxValue(5);
@@ -102,9 +103,8 @@ public class CreateAlert extends AppCompatActivity {
     }
 
     public void sendAlert(View view){
-        GeoManager geoManager = GeoManager.getInstance(this);
         newAlert.setDate(new Date());
-        newAlert.setCoord(geoManager.getLastCoordsKnownFromPreferences());
+        newAlert.setCoord(GeoManager.getInstance(this).getLastCoordsKnownFromPreferences());
         newAlert.setCriticity(selectedCriticity);
         newAlert.setType(spinner.getSelectedItem().toString());
 

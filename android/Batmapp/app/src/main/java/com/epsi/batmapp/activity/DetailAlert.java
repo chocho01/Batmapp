@@ -27,7 +27,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class DetailAlert extends FragmentActivity implements OnMapReadyCallback {
 
     private Alert currentAlert;
-    private GoogleMap mMap;
     private TextView libelleType;
     private TextView libelleSender;
     private TextView libelleReceiver;

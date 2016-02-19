@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.adapter.ListAlertAdapter;
 import com.epsi.batmapp.adapter.ListAlertPersoAdapter;
+import com.epsi.batmapp.fragment.NavigationDrawerFragment;
 import com.epsi.batmapp.helper.ImageDownloader;
 import com.epsi.batmapp.manager.ApiManager;
 import com.epsi.batmapp.model.Alert;
@@ -38,7 +40,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-public class DetailUser extends AppCompatActivity {
+public class DetailUser extends AppCompatActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks{
 
     private static final int SELECTED_PICTURE = 1;
 
@@ -47,6 +49,8 @@ public class DetailUser extends AppCompatActivity {
     private ListView alertsListView;
     private ArrayList<Alert> listAlerts;
     private ListAlertPersoAdapter adapter;
+    private TextView nameText;
+    private TextView emailText;
 
     private Session session;
 
@@ -59,8 +63,14 @@ public class DetailUser extends AppCompatActivity {
         session = Session.getInstance(null);
 
         img = (ImageView) findViewById(R.id.imageViewDetailUser);
+        nameText = (TextView) findViewById(R.id.DetailUserName);
+        emailText = (TextView) findViewById(R.id.DetailUserEmail);
+
         new ImageDownloader(img).execute(getString(R.string.image_server_path)
                 +session.getUserConnected().getPicture());
+
+        nameText.setText(session.getUserConnected().getFirstName() + " " + session.getUserConnected().getLastName());
+        emailText.setText(session.getUserConnected().getEmail());
 
         alertsListView = (ListView) findViewById(R.id.AlertDetailUserListView);
 
@@ -138,5 +148,10 @@ public class DetailUser extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+
     }
 }

@@ -26,8 +26,10 @@ import android.widget.TextView;
 
 import com.epsi.batmapp.R;
 import com.epsi.batmapp.activity.Authentication;
+import com.epsi.batmapp.activity.CreateAlert;
 import com.epsi.batmapp.activity.DetailUser;
 import com.epsi.batmapp.activity.ListAlert;
+import com.epsi.batmapp.activity.UserList;
 import com.epsi.batmapp.helper.ImageDownloader;
 import com.epsi.batmapp.model.Session;
 
@@ -70,8 +72,9 @@ public class NavigationDrawerFragment extends Fragment {
 
     private static final int PROFILE=0;
     private static final int LAST_ALERTS=1;
-    private static final int LIST_USERS=2;
-    private static final int DECO=3;
+    private static final int CREATE_ALERT =2;
+    private static final int LIST_USERS=3;
+    private static final int DECO=4;
     private static final String SPACE =" ";
 
     public NavigationDrawerFragment() {
@@ -104,7 +107,6 @@ public class NavigationDrawerFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_navigation_drawer, container);
-
         TextView name = (TextView) view.findViewById(R.id.leftMenuUserName);
         TextView mail = (TextView) view.findViewById(R.id.leftMenuUserMail);
         ImageView profilePicture = (ImageView) view.findViewById(R.id.menuProfilePicture);
@@ -133,6 +135,7 @@ public class NavigationDrawerFragment extends Fragment {
                 new String[]{
                         getString(R.string.title_profile),
                         getString(R.string.title_last_alerts),
+                        getString(R.string.title_create_alert),
                         getString(R.string.title_users),
                         getString(R.string.title_deco),
                 }));
@@ -148,7 +151,13 @@ public class NavigationDrawerFragment extends Fragment {
                         Intent goToListAlerts = new Intent(view.getContext(), ListAlert.class);
                         view.getContext().startActivity(goToListAlerts);
                         break;
+                    case CREATE_ALERT:
+                        Intent goToCreateAlert = new Intent(view.getContext(), CreateAlert.class);
+                        view.getContext().startActivity(goToCreateAlert);
+                        break;
                     case LIST_USERS:
+                        Intent goToListUsers = new Intent(view.getContext(), UserList.class);
+                        view.getContext().startActivity(goToListUsers);
                         break;
                     case DECO:
                         Intent backToLoginView = new Intent(view.getContext(), Authentication.class);

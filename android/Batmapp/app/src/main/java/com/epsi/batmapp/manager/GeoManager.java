@@ -95,6 +95,7 @@ public class GeoManager {
 
         @Override
         public void onProviderEnabled(String s) {
+            initiateLocationManager();
         }
 
         @Override

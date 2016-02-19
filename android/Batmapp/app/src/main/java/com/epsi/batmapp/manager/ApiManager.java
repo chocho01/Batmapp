@@ -86,23 +86,31 @@ public class ApiManager {
     public void createVocalAlertAPI(ArrayList<String> wordsRecognize){
 
         String url = context.getString(R.string.api_create_vocal_alert_url);
-        JSONArray words = new JSONArray(Arrays.asList(wordsRecognize));
+        JSONArray wordsArray = new JSONArray(Arrays.asList(wordsRecognize));
+        JSONObject words = new JSONObject();
+        try {
+            words.put("msg",wordsArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.POST, url, words, new Response.Listener<JSONObject>() {
+
                     @Override
-                    public void onResponse(String response) {
-                        System.out.printf("La reponse: " + response);
+                    public void onResponse(JSONObject response) {
+                        Intent goToListAlert= new Intent(context, ListAlert.class);
+                        context.startActivity(goToListAlert);
                     }
-                },
-                new Response.ErrorListener() {
+                }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
+                        displayAlertMessage(context.getString(R.string.error_registration_title),
+                                context.getString(R.string.error_registration_server));
                     }
                 });
-
-        Volley.newRequestQueue(context).add(stringRequest);
+        Volley.newRequestQueue(context).add(jsObjRequest);
     }
 
     public void RegistrationAPI (User user){
